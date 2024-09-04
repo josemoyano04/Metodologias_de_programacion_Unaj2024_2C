@@ -48,12 +48,15 @@
     <Compile Include="Clases\Cola.cs" />
     <Compile Include="Clases\ColeccionMultiple.cs" />
     <Compile Include="Clases\CompPorLegajo.cs" />
+    <Compile Include="Clases\IteradorPila.cs" />
     <Compile Include="Clases\Numero.cs" />
     <Compile Include="Clases\Persona.cs" />
     <Compile Include="Clases\Pila.cs" />
     <Compile Include="Interfaces\Coleccionable.cs" />
     <Compile Include="Interfaces\Comparable.cs" />
     <Compile Include="Interfaces\EstrategiaComparacion.cs" />
+    <Compile Include="Interfaces\Iterable.cs" />
+    <Compile Include="Interfaces\Iterador.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

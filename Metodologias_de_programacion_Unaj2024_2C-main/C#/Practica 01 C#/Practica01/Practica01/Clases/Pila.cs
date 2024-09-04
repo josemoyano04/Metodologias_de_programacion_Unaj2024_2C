@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Practica01
 {
-	public class Pila: Coleccionable
+	public class Pila: Coleccionable, Iterable
 	{
 		//Atributos
 		private List<Comparable> elementos = new List<Comparable>();
@@ -14,11 +14,16 @@ namespace Practica01
 		public Pila(){
 		}
 		
+		//Getters
+		public List<Comparable> getEementos(){
+			return this.elementos;
+		}
+		
 		//Metodos
 		public bool es_vacia()
 		{
 			
-			return this.elementos.Count() <= 0? true : false;;
+			return this.elementos.Count() <= 0;
 		}
 		
 		public void apilar(Comparable comp)
@@ -82,5 +87,12 @@ namespace Practica01
 			}
 			return false;
 		}
+		
+		//Implementacion de Iterable
+		public Iterador crearIterador()
+		{
+			return new IteradorPila(this);
+		}
+
 	}
 }

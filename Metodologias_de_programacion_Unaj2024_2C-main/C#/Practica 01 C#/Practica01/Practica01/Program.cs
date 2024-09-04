@@ -7,15 +7,14 @@ namespace Practica01
 		public static void Main(string[] args)
 		{
 			
-//			Pila pila = new Pila();
+			Pila pila = new Pila();
 //			Cola cola = new Cola();
 //			ColeccionMultiple multiple = new ColeccionMultiple(pila, cola);
-//			llenarAlumnos(pila);
+			llenar(pila);
 //			llenarAlumnos(cola);
-//			informar(pila);
+			informar(pila);
 //			informar(cola);
-			
-
+			imprimirElemento(pila);
 			
 			
 			Console.ReadKey(true);
@@ -72,6 +71,18 @@ namespace Practica01
 			Console.WriteLine("Cantidad: {0} \nMinimo: {1} \nMaximo: {2}, Contiene {3}: {4}\n",
 			                  coll.cuantos(), coll.minimo(), coll.maximo(), valor_consultado.getValor(),
 			                  coll.contiene(valor_consultado));
+		}
+		
+		
+		public static void imprimirElemento(Coleccionable coll){
+			Iterador ite = coll.crearIterador();
+			ite.primero();
+			
+			while(!ite.fin()){
+				Console.WriteLine(ite.actual());
+				ite.siguiente();
+			}
+			
 		}
 		
 	}

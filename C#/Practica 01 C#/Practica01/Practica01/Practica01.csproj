@@ -44,6 +44,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Alumno.cs" />
     <Compile Include="Clases\Cola.cs" />
     <Compile Include="Clases\ColeccionMultiple.cs" />
     <Compile Include="Clases\Numero.cs" />

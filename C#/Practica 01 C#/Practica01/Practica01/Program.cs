@@ -8,12 +8,14 @@ namespace Practica01
 		public static void Main(string[] args)
 		{
 			
-			Pila pila = new Pila();
-			Cola cola = new Cola();
-			ColeccionMultiple multiple = new ColeccionMultiple(pila, cola);
-			llenarPersonas(pila);
-			llenarPersonas(cola);
-			informar(multiple);
+//			Pila pila = new Pila();
+//			Cola cola = new Cola();
+//			ColeccionMultiple multiple = new ColeccionMultiple(pila, cola);
+//			llenarAlumnos(pila);
+//			llenarAlumnos(cola);
+//			informar(pila);
+//			informar(cola);
+			
 
 			
 			
@@ -36,9 +38,19 @@ namespace Practica01
 			
 			for (int i = 0; i < 20; i++)
 			{
-				int numRandom = random.Next(0, 100);
-				Persona personaRandom = new Persona("Persona" + i, numRandom);
+				Persona personaRandom = new Persona("Persona" + i, random.Next(0, 100));
 				coll.agregar(personaRandom);
+			}
+		}
+		
+		public static void llenarAlumnos(Coleccionable coll) {
+			Random random = new Random();
+			
+			for (int i = 0; i < 20; i++)
+			{
+				Alumno alumnoRandom = new Alumno("Persona" + i, random.Next(0, 100),
+				                                  random.Next(0, 1000), random.Next(0, 10));
+				coll.agregar(alumnoRandom);
 			}
 		}
 		

@@ -42,6 +42,7 @@ namespace Practica01
 			return false;
 		}
 		
+		//Overrides
 		public override string ToString()
 		{
 			return string.Format("Numero\n-Valor: {0}", this.valor);

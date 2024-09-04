@@ -6,8 +6,8 @@ namespace Practica01
 	public class Persona: Comparable
 	{
 		//Atributos
-		private string nombre;
-		private int dni;
+		protected string nombre;
+		protected int dni;
 		
 		//Constructor
 		public Persona(string nombre, int dni)
@@ -27,27 +27,29 @@ namespace Practica01
 		
 		
 		//Implementacion de Comparable
-		public bool sosIgual(Comparable comp)
+		public virtual bool sosIgual(Comparable comp)
 		{
 			if (this.dni == ((Persona)comp).getDni())
 				return true;
 			return false;
 		}
 		
-		public bool sosMenor(Comparable comp)
+		public virtual bool sosMenor(Comparable comp)
 		{
 			if (this.dni < ((Persona)comp).getDni())
 				return true;
 			return false;
 		}
 		
-		public bool sosMayor(Comparable comp)
+		public virtual bool sosMayor(Comparable comp)
 		{
 			if (this.dni > ((Persona)comp).getDni())
 				return true;
 			return false;
 		}
 		
+		
+		//Overrides
 		public override string ToString()
 		{
 			return string.Format("Persona\n-Nombre: {0}\n-Dni: {1}", this.nombre, this.dni);

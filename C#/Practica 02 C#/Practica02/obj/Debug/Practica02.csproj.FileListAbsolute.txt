@@ -1,0 +1,12 @@
+C:\Users\Almnos\Desktop\Metodologias_de_programacion_Unaj2024_2C-main\Metodologias_de_programacion_Unaj2024_2C-main\C#\Practica 01 C#\Practica01\Practica01\obj\Debug\Practica02.csprojResolveAssemblyReference.cache
+C:\Users\Almnos\Desktop\Metodologias_de_programacion_Unaj2024_2C-main\Metodologias_de_programacion_Unaj2024_2C-main\C#\Practica 01 C#\Practica01\Practica01\bin\Debug\Practica02.exe.config
+C:\Users\Almnos\Desktop\Metodologias_de_programacion_Unaj2024_2C-main\Metodologias_de_programacion_Unaj2024_2C-main\C#\Practica 01 C#\Practica01\Practica01\bin\Debug\Practica02.exe
+C:\Users\Almnos\Desktop\Metodologias_de_programacion_Unaj2024_2C-main\Metodologias_de_programacion_Unaj2024_2C-main\C#\Practica 01 C#\Practica01\Practica01\bin\Debug\Practica02.pdb
+C:\Users\Almnos\Desktop\Metodologias_de_programacion_Unaj2024_2C-main\Metodologias_de_programacion_Unaj2024_2C-main\C#\Practica 01 C#\Practica01\Practica01\obj\Debug\Practica02.exe
+C:\Users\Almnos\Desktop\Metodologias_de_programacion_Unaj2024_2C-main\Metodologias_de_programacion_Unaj2024_2C-main\C#\Practica 01 C#\Practica01\Practica01\obj\Debug\Practica02.pdb
+C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 02 C#\Practica02\bin\Debug\Practica02.exe.config
+C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 02 C#\Practica02\bin\Debug\Practica02.exe
+C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 02 C#\Practica02\bin\Debug\Practica02.pdb
+C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 02 C#\Practica02\obj\Debug\Practica02.csprojResolveAssemblyReference.cache
+C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 02 C#\Practica02\obj\Debug\Practica02.exe
+C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 02 C#\Practica02\obj\Debug\Practica02.pdb

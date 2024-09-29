@@ -5,13 +5,17 @@ using System.Linq;
 
 namespace Practica02
 {
-	public class Pila: Coleccionable
+	public class Pila: Coleccionable, IIterable
 	{
 		//Atributos
 		private List<Comparable> elementos = new List<Comparable>();
 		
 		//Constructor
-		public Pila(){
+		public Pila(){}
+		
+		//Getters
+		public List<Comparable> GetElementos(){
+			return this.elementos;
 		}
 		
 		//Metodos
@@ -35,7 +39,7 @@ namespace Practica02
 			return null;
 		}
 		
-			
+		
 		//Implementacion de Coleccionable
 		public int cuantos()
 		{
@@ -46,7 +50,7 @@ namespace Practica02
 		{
 			Comparable min = elementos[0];
 			
-			foreach (Comparable e in elementos) 
+			foreach (Comparable e in elementos)
 			{
 				if (e.sosMenor(min))
 					min = e;
@@ -59,7 +63,7 @@ namespace Practica02
 		{
 			Comparable max = elementos[0];
 			
-			foreach (Comparable e in elementos) 
+			foreach (Comparable e in elementos)
 			{
 				if (e.sosMayor(max))
 					max = e;
@@ -75,12 +79,18 @@ namespace Practica02
 		
 		public bool contiene(Comparable comp)
 		{
-			foreach (Comparable e in elementos) 
+			foreach (Comparable e in elementos)
 			{
 				if(comp.sosIgual(e))
 					return true;
 			}
 			return false;
 		}
+	
+		//Implementacion de IIterable
+		public IIterador crearIterador(){
+			return new IteradorPila(this);
+		}
+		
 	}
 }

@@ -25,6 +25,13 @@ namespace Practica02
 			return dni;
 		}
 		
+		public void setNombre(string nombre){
+			this.nombre = nombre;
+		}
+		public void setDni(int dni){
+			this.dni = dni;
+		}
+			
 		
 		//Implementacion de Comparable
 		public virtual bool sosIgual(Comparable comp)
@@ -52,7 +59,7 @@ namespace Practica02
 		//Overrides
 		public override string ToString()
 		{
-			return string.Format("Persona\n-Nombre: {0}\n-Dni: {1}", nombre, dni);
+			return string.Format("(Persona -Nombre: {0}, -Dni: {1})", nombre, dni);
 		}
 	}
 }

@@ -33,22 +33,18 @@ namespace Practica02
 		
 		public bool sosMenor(Comparable comp)
 		{
-			if (this.valor < ((Numero)comp).getValor())
-				return true;
-			return false;
+			return this.valor < ((Numero)comp).getValor();
 		}
 		
 		public bool sosMayor(Comparable comp)
 		{
-			if (this.valor > ((Numero)comp).getValor())
-				return true;
-			return false;
+			return this.valor > ((Numero)comp).getValor();
 		}
 		
 		//Overrides
 		public override string ToString()
 		{
-			return string.Format("Numero\n-Valor: {0}", this.valor);
+			return string.Format("(Numero -valor: {0})", this.valor);
 		}
 
 	}

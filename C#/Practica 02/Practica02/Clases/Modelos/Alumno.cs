@@ -8,24 +8,36 @@ namespace Practica02
 	{
 		//Atributos
 		private int legajo;
-		private int promedio;
+		private double promedio;
 		private IEstrategiaCompAlumno estrategiaComp;
 		
 		//Constructor
-		public Alumno(string nombre, int dni, int legajo, int promedio): base(nombre, dni)
+		public Alumno(string nombre, int dni, int legajo, double promedio): base(nombre, dni)
 		{
 			this.legajo = legajo;
 			this.promedio = promedio;
 			this.estrategiaComp = new CompAlumnPorLegajo();
 		}
 		
-		//Getters
+		//Getters y Setters
 		public int getLegajo(){
 			return legajo;
 		}
 		
-		public int getPromedio(){
+		public double getPromedio(){
 			return promedio;
+		}
+		
+		public void setLegajo(int legajo){
+			this.legajo = legajo;
+		}
+		
+		public void setPromedio(double promedio){
+			this.promedio = promedio;
+		}
+		
+		public void SetEstrategia(IEstrategiaCompAlumno estrategia){
+			estrategiaComp = estrategia;
 		}
 		
 		//Reimplementacion de Comparable
@@ -52,7 +64,7 @@ namespace Practica02
 		//Overrides
 		public override string ToString()
 		{
-			return string.Format("Alumno\n-Nombre: {0}\n-Dni: {1}\n-Legajo: {2}\n-Promedio: {3}",
+			return string.Format("(Alumno -Nombre: {0}, -Dni: {1}, -Legajo: {2}, -Promedio: {3})\n",
 			                     nombre, dni, legajo, promedio);
 		}
 	}

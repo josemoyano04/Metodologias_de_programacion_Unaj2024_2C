@@ -3,13 +3,18 @@ using System.Collections.Generic;
 
 namespace Practica02
 {
-	public class Conjunto : Coleccionable
+	public class Conjunto : Coleccionable, IIterable
 	{
 		//Atributos
 		private List<Comparable> elementos = new List<Comparable>();
 		
 		//Constructor
 		public Conjunto(){}
+		
+		//Get
+		public List<Comparable> GetElementos(){
+			return elementos;
+		}
 		
 		//Metodos Solicitados
 		public void agregar(Comparable comp) //Implementacion de Coleccionable
@@ -66,6 +71,11 @@ namespace Practica02
 				}
 			}
 			return false;
+		}
+	
+		//Implementacion de IIterable
+		public IIterador crearIterador(){
+			return new IteradorConjunto(this);
 		}
 	}
 }

@@ -5,13 +5,17 @@ using System.Linq;
 
 namespace Practica02
 {
-	public class Cola: Coleccionable
+	public class Cola: Coleccionable, IIterable
 	{
 		//Atributos
 		private List<Comparable> elementos = new List<Comparable>();
 		
 		//Constructor
-		public Cola(){
+		public Cola(){}
+		
+		//Get
+		public List<Comparable> GetElementos(){
+			return elementos;
 		}
 		
 		//Metodos
@@ -82,5 +86,13 @@ namespace Practica02
 			}
 			return false;
 		}
+
+		//Implementacion de IIterable
+
+		public IIterador crearIterador()
+		{
+			return new IteradorCola(this);
+		}
+
 	}
 }

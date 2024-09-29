@@ -45,20 +45,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\Alumno.cs" />
-    <Compile Include="Clases\Cola.cs" />
-    <Compile Include="Clases\ColeccionMultiple.cs" />
-    <Compile Include="Clases\CompAlumnPorDni.cs" />
-    <Compile Include="Clases\CompAlumnPorLegajo.cs" />
-    <Compile Include="Clases\CompAlumnPorNombre.cs" />
-    <Compile Include="Clases\CompAlumnPorPromedio.cs" />
-    <Compile Include="Clases\Conjunto.cs" />
-    <Compile Include="Clases\Numero.cs" />
-    <Compile Include="Clases\Persona.cs" />
-    <Compile Include="Clases\Pila.cs" />
+    <Compile Include="Clases\Collecciones\Cola.cs" />
+    <Compile Include="Clases\Collecciones\ColeccionMultiple.cs" />
+    <Compile Include="Clases\Collecciones\Conjunto.cs" />
+    <Compile Include="Clases\Collecciones\Diccionario.cs" />
+    <Compile Include="Clases\Collecciones\Iteradores\IteradorCola.cs" />
+    <Compile Include="Clases\Collecciones\Iteradores\IteradorConjunto.cs" />
+    <Compile Include="Clases\Collecciones\Iteradores\IteradorDiccionario.cs" />
+    <Compile Include="Clases\Collecciones\Iteradores\IteradorPila.cs" />
+    <Compile Include="Clases\Collecciones\Pila.cs" />
+    <Compile Include="Clases\Estrategias\CompAlumnPorDni.cs" />
+    <Compile Include="Clases\Estrategias\CompAlumnPorLegajo.cs" />
+    <Compile Include="Clases\Estrategias\CompAlumnPorNombre.cs" />
+    <Compile Include="Clases\Estrategias\CompAlumnPorPromedio.cs" />
+    <Compile Include="Clases\Modelos\Alumno.cs" />
+    <Compile Include="Clases\Modelos\ClaveValor.cs" />
+    <Compile Include="Clases\Modelos\Numero.cs" />
+    <Compile Include="Clases\Modelos\Persona.cs" />
     <Compile Include="Interfaces\Coleccionable.cs" />
     <Compile Include="Interfaces\Comparable.cs" />
     <Compile Include="Interfaces\IEstrategiaCompAlumno.cs" />
+    <Compile Include="Interfaces\IIterable.cs" />
+    <Compile Include="Interfaces\IIterador.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,6 +75,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Clases" />
+    <Folder Include="Clases\Collecciones" />
+    <Folder Include="Clases\Collecciones\Iteradores" />
+    <Folder Include="Clases\Modelos" />
+    <Folder Include="Clases\Estrategias" />
     <Folder Include="Interfaces" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,8 +11,6 @@ namespace Practica03
 		protected double promedio;
 		protected IEstrategiaCompAlumno estrategiaComp;
 		
-		protected List<IObservador> observadores = new List<IObservador>();
-		
 		//Unica instancia de random por fuera de metodos para evitar repeticion de datos aleatorios dentro de bucles.
 		protected Random random = new Random();
 		
@@ -49,33 +47,35 @@ namespace Practica03
 		
 		//Metodos
 		public virtual void prestarAtencion(){
-			Console.WriteLine("Prestando atención");
+			Console.WriteLine("Alumno: Prestando atención");
 		}
 		
 		public virtual void distraerse(){
 			string[] FRASES = {"Mirando el celular", "Dibujando en la carpeta", "Tirando aviones de papel"};
-			int fraseAleatoria = random.Next(0, 3);
-			Console.WriteLine(FRASES[fraseAleatoria]);
+			string fraseAleatoria = FRASES[random.Next(0, 3)];
+			Console.WriteLine("Alumno: " + fraseAleatoria);
 			
-			//Ejercicio 15 Opcional
-			if(FRASES[fraseAleatoria] == "Tirando aviones de papel")
+			if(fraseAleatoria == "Tirando aviones de papel"){
 				this.notificar();
-			
+			}
 		}
 
 		//implementacion de IObservador
 		public virtual void actualizar(IObservado o)
 		{
-			try {
-				if(((Profesor)o).esta_hablando())
+			if (o is Profesor) {
+				if (((Profesor)o).esta_hablando())
 					this.prestarAtencion();
 				else
 					this.distraerse();
-			} catch (InvalidCastException) {} //Control de errores cuando se actualiza desde una instancia distinta de profesor
+			}
 			
 		}
-
+		
 		//Implementacion de IObservado
+		public List<IObservador> observadores = new List<IObservador>();
+
+		
 		public virtual void agregarObservador(IObservador observador)
 		{
 			observadores.Add(observador);

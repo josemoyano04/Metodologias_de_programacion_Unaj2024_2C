@@ -21,8 +21,8 @@ namespace Practica03
 			Console.WriteLine("→Ingrese un numero de opción correspondiente a la coleccion donde desea guardar los datos");
 			Console.WriteLine("1. Pila \n2. Cola\n3. Conjunto\n4. Diccionario\n5. Coleccion Multiple");
 			
-			//Al utilizar el lector, evito el manejo de errores por ingresar
-			//caracteres no numericos, ya que dicho control se realiza internamente en el Lector:
+			//Al utilizar el lector, evito el manejo de errores por ingresar caracteres
+			//no numericos, ya que dicho control se realiza internamente en el Lector:
 			int[] OP_VALIDAS = {1, 2, 3, 4, 5};
 			int opColeccion = -1;
 			while (!OP_VALIDAS.Contains(opColeccion)) {
@@ -37,45 +37,57 @@ namespace Practica03
 			
 			//*******************************************************************************
 			
-			//Ejercicio 14
+			//Ejercicio 14 y 15(Opcional)
 			Profesor profesor = (Profesor)FabricaDeComparables.crearAleatorio(1);
 			AlumnoFavorito alumnoFav = (AlumnoFavorito)FabricaDeComparables.crearAleatorio(3);
 			
-			//Utilizacion de coleccion elegida por el usuario para almacenar 20 alumnos y el alumno favorito
-			llenar(coleccion, 2);
-			coleccion.agregar(alumnoFav);
+			alumnoFav.agregarObservador(profesor); //Profesor se vuelve observador del Alumno Favorito
+			profesor.agregarObservador(alumnoFav); //Alumno Favorito se vuelve observador de Profesor como todos sus compañeros
 			
-			//Agregado de profesor como observador de alumnoFav
-			alumnoFav.agregarObservador((IObservador)profesor);
+			//Utilizacion de coleccion elegida por el usuario para almacenar 20 alumnos
+			llenar(coleccion, 2);
+			
 			
 			// Iteracion de coleccion para agregar cada alumno de la coleccion como observador de profesor,
-			// ademas de agregar alumnoFav como observador de sus compañeros (Ejercicio 15 opcional),
+			// el alumnoFav como observador de cada alumno, el profesor como observador de alumnoFav,
 			// y control de errores generados al iterar colecciones complejas como Diccionarios o Colecciones Multiples
 			
 			try {
+				
 				IIterador iterador = ((IIterable)coleccion).crearIterador();
 				while (!iterador.fin()){
-					
+					//Profesor observado por alumno
 					profesor.agregarObservador((IObservador)iterador.actual());
+					
+					//Alumno observado por AlumnoFavorito
 					((IObservado)iterador.actual()).agregarObservador(alumnoFav);
 					
 					iterador.siguiente();
 				}
 				
+				//A fin de tener la coleccion completa de los alumnos de la clase, se agrega el Alumno Favorito a la coleccion
+				coleccion.agregar(alumnoFav);
+				
+				
 				dictadoDeClases(profesor);
 				
-			} catch (InvalidCastException e) {
+			} catch (InvalidCastException e)
+			{
+				// Control de errores producidos al utilizar colecciones complejas para guardar alumnos.
+				// Funcionalidad no implementada por falta de solicitud de la misma.
+				
 				Console.WriteLine();
 				Console.WriteLine("Seleccione tipo de coleccion Pila, Cola o Conjunto para evitar errores.");
 				Console.WriteLine("Error: " + e);
 			}
 			
 			
-			
 			//Dictado de clase
 			
 			Console.ReadKey(true);
 		}
+		
+		
 		
 		//Funciones
 		/// <summary>

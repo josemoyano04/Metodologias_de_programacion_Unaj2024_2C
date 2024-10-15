@@ -6,14 +6,17 @@ namespace Practica03
 	/// <summary>
 	/// Description of FabricaDeProfesor.
 	/// </summary>
-	public class FabricaDeProfesor: FabricaDeComparables
+	public class FabricaDeProfesor: FabricaDePersonas
 	{
 		public FabricaDeProfesor(){}
 		
 		public override Comparable crearAleatorio()
 		{
-			string nombreAl = aleatorio.stringAleatorio(10);
-			int dniAl = aleatorio.numeroAleatorio(1000000);
+			//Utilizacion de metodos de FabricaDePersona
+			string nombreAl = nombreAleatorio();
+			int dniAl = dniAleatorio(); 
+			
+			//Atributos restantes para cracion de Profesor
 			int antiguedadAl= aleatorio.numeroAleatorio(25);
 			
 			return new Profesor(nombreAl, dniAl, antiguedadAl);
@@ -21,10 +24,11 @@ namespace Practica03
 		
 		public override Comparable crearPorTeclado()
 		{
-			Console.Write("Nombre: ");
-			string nombreTec = teclado.stringPorTeclado();
-			Console.Write("Dni: ");
-			int dniTec = teclado.numerosPorTeclado();
+			//Utilizacion de metodos de FabricaDePersona
+			string nombreTec = nombreTeclado();
+			int dniTec = dniTeclado(); 
+			
+			//Atributos restantes para cracion de alumno
 			Console.Write("Antigueda: ");
 			int antiguedadTec = teclado.numerosPorTeclado();
 			

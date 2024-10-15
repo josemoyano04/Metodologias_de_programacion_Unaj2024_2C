@@ -3,7 +3,8 @@ using System;
 
 namespace Practica03
 {
-	public class FabricaDeAlumnos : FabricaDePersonas
+
+	public class FabricaDeAlumnosFavoritos: FabricaDeAlumnos
 	{
 		public override Comparable crearAleatorio()
 		{
@@ -12,7 +13,7 @@ namespace Practica03
 			int legajoAl = aleatorio.numeroAleatorio(1000);
 			int promedioAl = aleatorio.numeroAleatorio(11);
 			
-			return new Alumno(nombreAl, dniAl, legajoAl, promedioAl);
+			return new AlumnoFavorito(nombreAl, dniAl, legajoAl, promedioAl);
 		}
 		
 		public override Comparable crearPorTeclado()
@@ -40,7 +41,7 @@ namespace Practica03
 					promValido = true;
 			}
 			
-			return new Alumno(nombreTecl, dniTecl, legajoTecl, promedioTecl);
+			return new AlumnoFavorito(nombreTecl, dniTecl, legajoTecl, promedioTecl);
 		}
 	}
 }

@@ -15,6 +15,14 @@ namespace Practica03
 		
 		
 		//Metodos de clase
+		//Funciones
+		/// <summary>
+		/// Crea una instancia de una subclase de Comparable con valores aleatorios.
+		/// </summary>
+		/// <param name="opcion">
+		/// Tipos de instancia a crear:
+		/// 0 = new Numero() | 1 = new Profesor() | 2 = new Alumno() | 3 = new AlumnoFavorito()
+		/// </param>
 		public static Comparable crearAleatorio(int opcion){
 			FabricaDeComparables fabrica = null;
 			switch (opcion) {
@@ -27,11 +35,21 @@ namespace Practica03
 				case 2: //Fabrica de alumnos
 					fabrica = new FabricaDeAlumnos();
 					break;
+				case 3: //Fabrica de alumnos favoritos
+					fabrica = new FabricaDeAlumnosFavoritos();
+					break;
 			}
 			
 			return fabrica.crearAleatorio();
 		}
 		
+		/// <summary>
+		/// Crea una instancia de una subclase de Comparable con valores ingresador por teclado.
+		/// </summary>
+		/// <param name="opcion">
+		/// Tipos de instancia a crear:
+		/// 0 = New Numero() | 1 = New Profesor() | 2 = New Alumno()
+		/// </param>
 		public static Comparable crearPorTeclado(int opcion){
 			FabricaDeComparables fabrica = null;
 			switch (opcion) {

@@ -1,14 +1,21 @@
 ﻿
 using System;
+using System.Collections.Generic;
 
 namespace Practica03
 {
-	public class Alumno: Persona
+	public class Alumno: Persona, IObservador, IObservado
 	{
 		//Atributos
-		private int legajo;
-		private double promedio;
-		private IEstrategiaCompAlumno estrategiaComp;
+		protected int legajo;
+		protected double promedio;
+		protected IEstrategiaCompAlumno estrategiaComp;
+		
+		protected List<IObservador> observadores = new List<IObservador>();
+		
+		//Unica instancia de random por fuera de metodos para evitar repeticion de datos aleatorios dentro de bucles.
+		protected Random random = new Random();
+		
 		
 		//Constructor
 		public Alumno(string nombre, int dni, int legajo, double promedio): base(nombre, dni)
@@ -41,15 +48,47 @@ namespace Practica03
 		
 		
 		//Metodos
-		public void prestarAtencion(){
+		public virtual void prestarAtencion(){
 			Console.WriteLine("Prestando atención");
 		}
 		
-		public void distraerse(){
+		public virtual void distraerse(){
 			string[] FRASES = {"Mirando el celular", "Dibujando en la carpeta", "Tirando aviones de papel"};
-			Random r = new Random();
-			int fraseAleatoria = r.Next(0, 3);
+			int fraseAleatoria = random.Next(0, 3);
 			Console.WriteLine(FRASES[fraseAleatoria]);
+			
+			//Ejercicio 15 Opcional
+			if(FRASES[fraseAleatoria] == "Tirando aviones de papel")
+				this.notificar();
+			
+		}
+
+		//implementacion de IObservador
+		public virtual void actualizar(IObservado o)
+		{
+			try {
+				if(((Profesor)o).esta_hablando())
+					this.prestarAtencion();
+				else
+					this.distraerse();
+			} catch (InvalidCastException) {} //Control de errores cuando se actualiza desde una instancia distinta de profesor
+			
+		}
+
+		//Implementacion de IObservado
+		public virtual void agregarObservador(IObservador observador)
+		{
+			observadores.Add(observador);
+		}
+		public virtual void eliminarObservador(IObservador observador)
+		{
+			observadores.Remove(observador);
+		}
+		public virtual void notificar()
+		{
+			foreach (IObservador o in observadores) {
+				o.actualizar(this);
+			}
 		}
 		
 		//Reimplementacion de Comparable

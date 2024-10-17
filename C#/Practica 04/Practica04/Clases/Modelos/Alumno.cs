@@ -9,7 +9,8 @@ namespace Practica04
 		//Atributos
 		protected int legajo;
 		protected double promedio;
-		protected IEstrategiaCompAlumno estrategiaComp;
+		protected double calificacion;
+		protected IEstrategiaCompAlumno estrategiaComp = new CompAlumnPorLegajo();
 		
 		//Unica instancia de random por fuera de metodos para evitar repeticion de datos aleatorios dentro de bucles.
 		protected Random random = new Random();
@@ -20,7 +21,6 @@ namespace Practica04
 		{
 			this.legajo = legajo;
 			this.promedio = promedio;
-			this.estrategiaComp = new CompAlumnPorLegajo();
 		}
 		
 		//Getters y Setters
@@ -44,6 +44,13 @@ namespace Practica04
 			estrategiaComp = estrategia;
 		}
 		
+		public double GetCalificacion(){
+			return this.calificacion;
+		}
+		public void SetCalificacion(double c){
+			this.calificacion = c;
+		}
+		
 		
 		//Metodos
 		public virtual void prestarAtencion(){
@@ -58,6 +65,14 @@ namespace Practica04
 			if(fraseAleatoria == "Tirando aviones de papel"){
 				this.notificar();
 			}
+		}
+		
+		public virtual int responderPregunta(int pregunta){
+			return random.Next(0,3);
+		}
+		
+		public virtual string mostrarCalificacion(){
+			return (this.nombre + "     " + this.calificacion);
 		}
 
 		//implementacion de IObservador

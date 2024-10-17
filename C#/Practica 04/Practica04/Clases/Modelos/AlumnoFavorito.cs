@@ -9,9 +9,8 @@ namespace Practica04
 	{
 		
 
-		public AlumnoFavorito(string nombre, int dni, int legajo, double promedio): base(nombre, dni, legajo, promedio){
-			this.estrategiaComp = new CompAlumnPorLegajo();
-		}
+		public AlumnoFavorito(string nombre, int dni, int legajo, double promedio)
+			:base(nombre, dni, legajo, promedio){}
 		
 		public override void distraerse(){
 			Console.WriteLine("Alumno Favorito: Yo nunca me distraigo, siempre presto atención");

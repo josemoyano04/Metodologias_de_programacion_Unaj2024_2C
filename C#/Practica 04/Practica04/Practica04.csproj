@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Adaptadores\AlumnoAdapter.cs" />
     <Compile Include="Clases\Collecciones\Cola.cs" />
     <Compile Include="Clases\Collecciones\ColeccionMultiple.cs" />
     <Compile Include="Clases\Collecciones\Conjunto.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Clases\Fabricas\Comparables\FabricaDeProfesor.cs" />
     <Compile Include="Clases\Modelos\Alumno.cs" />
     <Compile Include="Clases\Modelos\AlumnoFavorito.cs" />
+    <Compile Include="Clases\Modelos\AlumnoMuyEstudioso.cs" />
     <Compile Include="Clases\Modelos\ClaveValor.cs" />
     <Compile Include="Clases\Modelos\Numero.cs" />
     <Compile Include="Clases\Modelos\Persona.cs" />
@@ -96,6 +98,7 @@
     <Folder Include="Clases" />
     <Folder Include="Clases\Collecciones" />
     <Folder Include="Clases\Collecciones\Iteradores" />
+    <Folder Include="Clases\Adaptadores" />
     <Folder Include="Clases\Fabricas" />
     <Folder Include="Clases\Fabricas\Comparables" />
     <Folder Include="Clases\Fabricas\Colecciones" />

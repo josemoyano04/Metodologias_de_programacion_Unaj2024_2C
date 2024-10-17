@@ -11,7 +11,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Practica04
+namespace MDPI
 {
 	public interface Student
 	{

@@ -3,9 +3,9 @@ using System;
 
 namespace Practica04
 {
-
-	public class FabricaDeAlumnosFavoritos: FabricaDeAlumnos
+	public class FabricaDeAlumnosMuyEstudiosos: FabricaDeAlumnos
 	{
+
 		public override Comparable crearAleatorio()
 		{
 			string nombreAl = nombreAleatorio();
@@ -13,7 +13,7 @@ namespace Practica04
 			int legajoAl = legajoAleatorio();
 			int promedioAl = promedioAleatorio();
 			
-			return new AlumnoFavorito(nombreAl, dniAl, legajoAl, promedioAl);
+			return new AlumnoMuyEstudioso(nombreAl, dniAl, legajoAl, promedioAl);
 		}
 		
 		public override Comparable crearPorTeclado()
@@ -27,7 +27,8 @@ namespace Practica04
 			int promedioTecl = promedioPorTeclado();
 			
 			
-			return new AlumnoFavorito(nombreTecl, dniTecl, legajoTecl, promedioTecl);
+			return new AlumnoMuyEstudioso(nombreTecl, dniTecl, legajoTecl, promedioTecl);
 		}
+
 	}
 }

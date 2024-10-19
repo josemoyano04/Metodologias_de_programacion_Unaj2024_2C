@@ -55,6 +55,11 @@
     <Compile Include="Clases\Collecciones\Iteradores\IteradorDiccionario.cs" />
     <Compile Include="Clases\Collecciones\Iteradores\IteradorPila.cs" />
     <Compile Include="Clases\Collecciones\Pila.cs" />
+    <Compile Include="Clases\Decoradores\AlumnoDecoradoCalificacionEnLetras.cs" />
+    <Compile Include="Clases\Decoradores\AlumnoDecoradoEstadoPromocion.cs" />
+    <Compile Include="Clases\Decoradores\AlumnoDecoradoLegajo.cs" />
+    <Compile Include="Clases\Decoradores\AlumnoDecoradoRecuadro.cs" />
+    <Compile Include="Clases\Decoradores\AlumnoDecorator.cs" />
     <Compile Include="Clases\Estrategias\CompAlumnPorDni.cs" />
     <Compile Include="Clases\Estrategias\CompAlumnPorLegajo.cs" />
     <Compile Include="Clases\Estrategias\CompAlumnPorNombre.cs" />
@@ -65,6 +70,7 @@
     <Compile Include="Clases\Fabricas\Colecciones\FabricaDeConjunto.cs" />
     <Compile Include="Clases\Fabricas\Colecciones\FabricaDeDiccionario.cs" />
     <Compile Include="Clases\Fabricas\Colecciones\FabricaDePila.cs" />
+    <Compile Include="Clases\Fabricas\Comparables\FabricaDeAlumnoMuyEstudioso.cs" />
     <Compile Include="Clases\Fabricas\Comparables\FabricaDeAlumnosFavoritos.cs" />
     <Compile Include="Clases\Fabricas\Comparables\FabricaDeAlumnos.cs" />
     <Compile Include="Clases\Fabricas\Comparables\FabricaDeComparables.cs" />
@@ -78,11 +84,13 @@
     <Compile Include="Clases\Modelos\Numero.cs" />
     <Compile Include="Clases\Modelos\Persona.cs" />
     <Compile Include="Clases\Modelos\Profesor.cs" />
+    <Compile Include="Clases\Modelos\Cadena.cs" />
     <Compile Include="Clases\Utilidades\GeneradorDeDatosAleatorios.cs" />
     <Compile Include="Clases\Utilidades\LectorDeDatos.cs" />
     <Compile Include="Clases\Utilidades\MDPI.cs" />
     <Compile Include="Interfaces\Coleccionable.cs" />
     <Compile Include="Interfaces\Comparable.cs" />
+    <Compile Include="Interfaces\IAlumno.cs" />
     <Compile Include="Interfaces\IEstrategiaCompAlumno.cs" />
     <Compile Include="Interfaces\IIterable.cs" />
     <Compile Include="Interfaces\IIterador.cs" />
@@ -99,6 +107,7 @@
     <Folder Include="Clases\Collecciones" />
     <Folder Include="Clases\Collecciones\Iteradores" />
     <Folder Include="Clases\Adaptadores" />
+    <Folder Include="Clases\Decoradores" />
     <Folder Include="Clases\Fabricas" />
     <Folder Include="Clases\Fabricas\Comparables" />
     <Folder Include="Clases\Fabricas\Colecciones" />

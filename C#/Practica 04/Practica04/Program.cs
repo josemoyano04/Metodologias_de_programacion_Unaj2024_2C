@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Threading;
+using MDPI;
 
 namespace Practica04
 {
@@ -9,9 +10,35 @@ namespace Practica04
 	{
 		public static void Main(string[] args)
 		{
-			AlumnoAdapter a = new AlumnoAdapter((Alumno)FabricaDeComparables.crearAleatorio(2));
-			Console.WriteLine(a.equals(a));
+			Alumno a1 = (Alumno)FabricaDeComparables.crearAleatorio(2);
+			a1.setCalificacion(3);
+			AlumnoFavorito a2 = (AlumnoFavorito)FabricaDeComparables.crearAleatorio(3);
+			AlumnoMuyEstudioso a3 = (AlumnoMuyEstudioso)FabricaDeComparables.crearAleatorio(4);
 			
+			
+			AlumnoDecoradoEstadoPromocion a = new AlumnoDecoradoEstadoPromocion(a1);
+			AlumnoDecoradoRecuadro b = new AlumnoDecoradoRecuadro(a);
+			
+			Console.WriteLine(a.mostrarCalificacion());
+			Console.WriteLine(b.mostrarCalificacion());
+			
+			
+//			Teacher teacher = new Teacher();
+//			
+//			//Agregado de 20 Students
+//			for (int i = 0; i < 10; i++) {
+//				Thread.Sleep(1); //Espera para evitar repeticion de datos por nueva creacion de Random
+//				AlumnoAdapter alumnoBase = new AlumnoAdapter((Alumno)FabricaDeComparables.crearAleatorio(2));
+//				Thread.Sleep(1); //Espera para evitar repeticion de datos por nueva creacion de Random
+//				AlumnoAdapter alumnoEstudioso = new AlumnoAdapter((Alumno)FabricaDeComparables.crearAleatorio(4));
+//		
+//				teacher.goToClass(alumnoBase);
+//				teacher.goToClass(alumnoEstudioso);
+//			}
+//			
+//			teacher.teachingAClass();
+			
+			Console.Write("Ok 200");
 			Console.ReadKey(true);
 		}
 		

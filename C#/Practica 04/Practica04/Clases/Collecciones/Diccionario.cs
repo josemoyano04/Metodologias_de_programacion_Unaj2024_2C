@@ -99,8 +99,8 @@ namespace Practica04
 		
 		public void agregar(Comparable valor)
 		{
-			Comparable clave = new Numero(contadorClave);
 			
+			Comparable clave = new Numero(contadorClave);
 			this.agregar(clave, valor);
 			
 			contadorClave++;

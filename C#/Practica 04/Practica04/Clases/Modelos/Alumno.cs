@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 namespace Practica04
 {
-	public class Alumno: Persona, IObservador, IObservado
+	public class Alumno: Persona, IAlumnoDecorable, IObservador, IObservado
 	{
 		//Atributos
 		protected int legajo;
 		protected double promedio;
-		protected double calificacion;
+		protected int calificacion;
 		protected IEstrategiaCompAlumno estrategiaComp = new CompAlumnPorLegajo();
 		
 		//Unica instancia de random por fuera de metodos para evitar repeticion de datos aleatorios dentro de bucles.
@@ -44,13 +44,12 @@ namespace Practica04
 			estrategiaComp = estrategia;
 		}
 		
-		public double GetCalificacion(){
+		public int getCalificacion(){
 			return this.calificacion;
 		}
-		public void SetCalificacion(double c){
+		public void setCalificacion(int c){
 			this.calificacion = c;
 		}
-		
 		
 		//Metodos
 		public virtual void prestarAtencion(){

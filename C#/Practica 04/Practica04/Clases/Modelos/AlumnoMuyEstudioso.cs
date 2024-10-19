@@ -1,11 +1,8 @@
 ﻿
 using System;
 
-namespace Practica04.Clases.Modelos
+namespace Practica04
 {
-	/// <summary>
-	/// Description of AlumnoMuyEstudioso.
-	/// </summary>
 	public class AlumnoMuyEstudioso: Alumno
 	{
 		public AlumnoMuyEstudioso(

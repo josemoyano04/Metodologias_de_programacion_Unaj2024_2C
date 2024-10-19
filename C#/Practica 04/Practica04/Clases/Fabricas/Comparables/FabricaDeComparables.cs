@@ -21,7 +21,8 @@ namespace Practica04
 		/// </summary>
 		/// <param name="opcion">
 		/// Tipos de instancia a crear:
-		/// 0 = new Numero() | 1 = new Profesor() | 2 = new Alumno() | 3 = new AlumnoFavorito()
+		/// 0 = new Numero() | 1 = new Profesor() | 2 = new Alumno() | 
+		/// 3 = new AlumnoFavorito() | 4 = new FabricaDeAlumnosMuyEstudiosos()
 		/// </param>
 		public static Comparable crearAleatorio(int opcion){
 			FabricaDeComparables fabrica = null;
@@ -37,6 +38,9 @@ namespace Practica04
 					break;
 				case 3: //Fabrica de alumnos favoritos
 					fabrica = new FabricaDeAlumnosFavoritos();
+					break;
+				case 4: //Fabrica de alumnos muy estudiosos
+					fabrica = new FabricaDeAlumnosMuyEstudiosos();
 					break;
 			}
 			

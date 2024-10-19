@@ -9,8 +9,8 @@ namespace Practica04
 		{
 			string nombreAl = nombreAleatorio();
 			int dniAl = dniAleatorio();
-			int legajoAl = aleatorio.numeroAleatorio(1000);
-			int promedioAl = aleatorio.numeroAleatorio(11);
+			int legajoAl = legajoAleatorio();
+			int promedioAl = promedioAleatorio();
 			
 			return new Alumno(nombreAl, dniAl, legajoAl, promedioAl);
 		}
@@ -22,10 +22,26 @@ namespace Practica04
 			//Utilizacion de metodos de FabricaDePersona
 			string nombreTecl = nombreTeclado();
 			int dniTecl = dniTeclado(); 
+			int legajoTecl = legajoPorTeclado();
+			int promedioTecl = promedioPorTeclado();
 			
-			//Atributos restantes para cracion de alumno
+			return new Alumno(nombreTecl, dniTecl, legajoTecl, promedioTecl);
+		}
+	
+		//Metodos correspondientes faltantes para la creacion de alumnos
+		//Aleatorios
+		protected int legajoAleatorio(){
+			return aleatorio.numeroAleatorio(1000);
+		}
+		protected int promedioAleatorio(){
+			return aleatorio.numeroAleatorio(11);
+		}
+		//Por Teclado
+		protected int legajoPorTeclado(){
 			Console.Write("Legajo: ");
-			int legajoTecl = teclado.numerosPorTeclado();
+			return teclado.numerosPorTeclado();
+		}
+		protected int promedioPorTeclado(){
 			Console.Write("Promedio: ");
 			int promedioTecl = -1;
 			
@@ -34,13 +50,13 @@ namespace Practica04
 				promedioTecl = teclado.numerosPorTeclado();
 				if (promedioTecl < 0 || promedioTecl > 10)
 				{
-					Console.WriteLine("El promedio debe ser mayor a 0 y menor que 10");
+					Console.WriteLine("El promedio debe estar dentro del rango de 0 a 10, ambos inclusive");
 				}
 				else
 					promValido = true;
 			}
-			
-			return new Alumno(nombreTecl, dniTecl, legajoTecl, promedioTecl);
+			return promedioTecl;
 		}
+		
 	}
 }

@@ -13,6 +13,9 @@ namespace Practica04
 			this.alumno = a;
 		}
 		
+		public Alumno GetAlumno(){
+			return this.alumno;
+		}
 		//Implementacion de Student
 		
 		public string getName()
@@ -25,7 +28,7 @@ namespace Practica04
 		}
 		public void setScore(int score)
 		{
-			this.alumno.SetCalificacion(score);
+			this.alumno.setCalificacion(score);
 		}
 		public string showResult()
 		{
@@ -33,15 +36,23 @@ namespace Practica04
 		}
 		public bool equals(Student student)
 		{
-			return this.alumno.sosIgual((Comparable)student);
+			AlumnoAdapter studentComparado = (AlumnoAdapter)student;
+			bool sonIguales = alumno.getCalificacion() == (studentComparado.GetAlumno()).getCalificacion();
+			return sonIguales;
+			
 		}
 		public bool lessThan(Student student)
 		{
-			return this.alumno.sosMenor((Comparable)student);
+			AlumnoAdapter studentComparado = (AlumnoAdapter)student;
+			bool esMenor = alumno.getCalificacion() < (studentComparado.GetAlumno()).getCalificacion();
+			return esMenor;
+			
 		}
 		public bool greaterThan(Student student)
 		{
-			return this.alumno.sosMayor((Comparable)student);
+			AlumnoAdapter studentComparado = (AlumnoAdapter)student;
+			bool esMayor = alumno.getCalificacion() > (studentComparado.GetAlumno()).getCalificacion();
+			return esMayor;
 		}
 	}
 }

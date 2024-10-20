@@ -135,7 +135,7 @@ namespace MDPI
 			while(! iterator.end())
 			{
 				student = iterator.current();
-				Console.WriteLine("\t" + student.getName() + " is present" + student.GetType());
+				Console.WriteLine("\t" + student.getName() + " is present " + student.GetType());
 				iterator.next();
 			}
 			Console.WriteLine("\n\n");

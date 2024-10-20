@@ -3,15 +3,15 @@ using System;
 
 namespace Practica04
 {
-	public abstract class AlumnoDecorator: IAlumnoDecorable
+	public abstract class AlumnoDecorator: IAlumno
 	{
-		protected IAlumnoDecorable alumno;
+		protected IAlumno alumno;
 		
-		protected AlumnoDecorator(IAlumnoDecorable alumno)
+		protected AlumnoDecorator(IAlumno alumno)
 		{
 			this.alumno = alumno;
 		}
-
+		
 		public string getNombre()
 		{
 			return this.alumno.getNombre();
@@ -23,6 +23,14 @@ namespace Practica04
 		public int getCalificacion()
 		{
 			return this.alumno.getCalificacion();
+		}
+		
+		public void setCalificacion(int c){
+			this.alumno.setCalificacion(c);
+		}
+		
+		public int responderPregunta(int p){
+			return this.alumno.responderPregunta(p);
 		}
 		
 		public virtual string mostrarCalificacion()

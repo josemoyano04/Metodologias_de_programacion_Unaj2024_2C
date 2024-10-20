@@ -4,27 +4,27 @@ using MDPI;
 
 namespace Practica04
 {
-	public class AlumnoAdapter: Student
+	public class AlumnoAdapter : Student
 	{
-		private Alumno alumno;
-		
-		public AlumnoAdapter(Alumno a)
+		private IAlumno alumno;
+
+		public AlumnoAdapter(IAlumno a)
 		{
 			this.alumno = a;
 		}
-		
-		public Alumno GetAlumno(){
+		public IAlumno GetAlumno(){
 			return this.alumno;
 		}
-		//Implementacion de Student
 		
+		//Implementacion de Student
+
 		public string getName()
 		{
 			return this.alumno.getNombre();
 		}
 		public int yourAnswerIs(int question)
 		{
-			return this.alumno.responderPregunta(question);
+			return ((IAlumno)this.alumno).responderPregunta(question);
 		}
 		public void setScore(int score)
 		{
@@ -39,14 +39,14 @@ namespace Practica04
 			AlumnoAdapter studentComparado = (AlumnoAdapter)student;
 			bool sonIguales = alumno.getCalificacion() == (studentComparado.GetAlumno()).getCalificacion();
 			return sonIguales;
-			
+
 		}
 		public bool lessThan(Student student)
 		{
 			AlumnoAdapter studentComparado = (AlumnoAdapter)student;
 			bool esMenor = alumno.getCalificacion() < (studentComparado.GetAlumno()).getCalificacion();
 			return esMenor;
-			
+
 		}
 		public bool greaterThan(Student student)
 		{

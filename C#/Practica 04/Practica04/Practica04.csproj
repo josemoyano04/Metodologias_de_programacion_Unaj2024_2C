@@ -59,6 +59,7 @@
     <Compile Include="Clases\Decoradores\AlumnoDecoradoEstadoPromocion.cs" />
     <Compile Include="Clases\Decoradores\AlumnoDecoradoLegajo.cs" />
     <Compile Include="Clases\Decoradores\AlumnoDecoradoRecuadro.cs" />
+    <Compile Include="Clases\Decoradores\AlumnoDecoradoSecuenciaNumerica.cs" />
     <Compile Include="Clases\Decoradores\AlumnoDecorator.cs" />
     <Compile Include="Clases\Estrategias\CompAlumnPorDni.cs" />
     <Compile Include="Clases\Estrategias\CompAlumnPorLegajo.cs" />
@@ -77,6 +78,9 @@
     <Compile Include="Clases\Fabricas\Comparables\FabricaDeNumeros.cs" />
     <Compile Include="Clases\Fabricas\Comparables\FabricaDePersonas.cs" />
     <Compile Include="Clases\Fabricas\Comparables\FabricaDeProfesor.cs" />
+    <Compile Include="Clases\Fabricas\Students\DecoratedStudentsFactory.cs" />
+    <Compile Include="Clases\Fabricas\Students\DecoratedVeryStudiousStudentsFactory.cs" />
+    <Compile Include="Clases\Fabricas\Students\StudentsFactory.cs" />
     <Compile Include="Clases\Modelos\Alumno.cs" />
     <Compile Include="Clases\Modelos\AlumnoFavorito.cs" />
     <Compile Include="Clases\Modelos\AlumnoMuyEstudioso.cs" />
@@ -111,6 +115,7 @@
     <Folder Include="Clases\Fabricas" />
     <Folder Include="Clases\Fabricas\Comparables" />
     <Folder Include="Clases\Fabricas\Colecciones" />
+    <Folder Include="Clases\Fabricas\Students" />
     <Folder Include="Clases\Utilidades" />
     <Folder Include="Clases\Modelos" />
     <Folder Include="Clases\Estrategias" />

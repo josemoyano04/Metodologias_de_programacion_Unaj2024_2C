@@ -97,6 +97,9 @@
     <Compile Include="Clases\Modelos\Cadena.cs" />
     <Compile Include="Clases\Proxys\AlumnoMuyEstudiosoProxy.cs" />
     <Compile Include="Clases\Proxys\AlumnoProxy.cs" />
+    <Compile Include="Clases\Proxys\ColaProxy.cs" />
+    <Compile Include="Clases\Proxys\ConjuntoProxy.cs" />
+    <Compile Include="Clases\Proxys\PilaProxy.cs" />
     <Compile Include="Clases\Utilidades\GeneradorDeDatosAleatorios.cs" />
     <Compile Include="Clases\Utilidades\LectorDeDatos.cs" />
     <Compile Include="Clases\Utilidades\MDPI.cs" />

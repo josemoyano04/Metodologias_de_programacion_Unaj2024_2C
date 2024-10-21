@@ -3,7 +3,7 @@ using MDPI;
 
 namespace Practica05
 {
-	public class Aula //Receptor
+	public class Aula
 	{
 		private Teacher teacher = null;
 		

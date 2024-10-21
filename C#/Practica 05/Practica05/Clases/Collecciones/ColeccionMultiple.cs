@@ -58,5 +58,18 @@ namespace Practica05
 			return pila.contiene(comp) || cola.contiene(comp) ? true : false;
 		}
 		
+		//Implementacion de ordenable
+		public void setOrdenInicio(OrdenEnAula1 orden)
+		{
+			throw new NotImplementedException();
+		}
+		public void setOrdenLlegaAlumno(OrdenEnAula2 orden)
+		{
+			throw new NotImplementedException();
+		}
+		public void setOrdenAulaLlena(OrdenEnAula1 orden)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

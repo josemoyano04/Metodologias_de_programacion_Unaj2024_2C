@@ -5,10 +5,15 @@ using System.Linq;
 
 namespace Practica05
 {
-	public class Pila: Coleccionable, IIterable
+	public class Pila: Coleccionable, IIterable, Ordenable, IObservado
 	{
 		//Atributos
+		private OrdenEnAula1 ordenInicio;
+		private OrdenEnAula2 ordenLLegaAlumno;
+		private OrdenEnAula1 ordenAulaLlena;
+		
 		private List<Comparable> elementos = new List<Comparable>();
+		private List<IObservador> observadores = new List<IObservador>();
 		
 		//Constructor
 		public Pila(){}
@@ -74,7 +79,30 @@ namespace Practica05
 		
 		public void agregar(Comparable comp)
 		{
-			apilar(comp);
+			if(es_vacia()) //Si la coleccion es vacia, es porque el elemento a agregar es el primero
+			{
+				ordenInicio.ejecutar();
+				apilar(comp);
+				ordenLLegaAlumno.ejecutar(comp);
+			}
+			
+			//Si la coleccion tiene 40 elementos, la clase comienza
+			if(cuantos() == 40) 
+			{
+				ordenAulaLlena.ejecutar();
+			}
+			else //mientras que la coleccion no tenga 40 elementos, se van a seguir agregando
+			{
+				apilar(comp);
+				ordenLLegaAlumno.ejecutar(comp);
+			}
+		}
+		
+		//Metodo auxiliar no solicitado; utiliza polimorfismo y un nuevo parametro booleano para forzar el agregado de un elemento a la coleccion
+		//este metodo no interfiere con la implementacion de el patron Command
+		public void agregar(Comparable comp, bool forzarAgregado){
+			if(forzarAgregado)
+				apilar(comp);
 		}
 		
 		public bool contiene(Comparable comp)
@@ -86,11 +114,43 @@ namespace Practica05
 			}
 			return false;
 		}
-	
+		
 		//Implementacion de IIterable
 		public IIterador crearIterador(){
 			return new IteradorPila(this);
 		}
 		
+		//Implementacion de ordenable
+		public void setOrdenInicio(OrdenEnAula1 orden)
+		{
+			ordenInicio = orden;
+		}
+		public void setOrdenLlegaAlumno(OrdenEnAula2 orden)
+		{
+			ordenLLegaAlumno = orden;
+		}
+		public void setOrdenAulaLlena(OrdenEnAula1 orden)
+		{
+			ordenAulaLlena = orden;
+		}
+
+		//implementacion de IObservado 
+
+		public void agregarObservador(IObservador observador)
+		{
+			observadores.Add(observador);
+		}
+
+		public void eliminarObservador(IObservador observador)
+		{
+			observadores.Remove(observador);
+		}
+
+		public void notificar()
+		{
+			foreach (IObservador o in observadores) {
+				o.actualizar(this);
+			}
+		}
 	}
 }

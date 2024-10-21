@@ -4,7 +4,7 @@ using MDPI;
 
 namespace Practica05
 {
-	public class AlumnoAdapter : Student
+	public class AlumnoAdapter : Student, Comparable
 	{
 		private IAlumno alumno;
 
@@ -54,5 +54,24 @@ namespace Practica05
 			bool esMayor = alumno.getCalificacion() > (studentComparado.GetAlumno()).getCalificacion();
 			return esMayor;
 		}
+
+		#region Comparable implementation
+
+		public bool sosIgual(Comparable comp)
+		{
+			return alumno.sosIgual(comp);
+		}
+
+		public bool sosMenor(Comparable comp)
+		{
+			return alumno.sosMenor(comp);
+		}
+
+		public bool sosMayor(Comparable comp)
+		{
+			return alumno.sosMayor(comp);
+		}
+
+		#endregion
 	}
 }

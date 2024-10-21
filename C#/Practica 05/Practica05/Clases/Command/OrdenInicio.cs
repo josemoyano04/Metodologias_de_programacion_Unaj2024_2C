@@ -4,7 +4,7 @@ using System;
 namespace Practica05
 {
 
-	public class OrdenInicio: OrdenEnAula1 //Orden concreta A
+	public class OrdenInicio: OrdenEnAula1
 	{
 		private Aula aula;
 		public OrdenInicio(Aula aula)

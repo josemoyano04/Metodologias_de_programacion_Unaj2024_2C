@@ -3,7 +3,7 @@ using System;
 
 namespace Practica05
 {
-	public interface IAlumno
+	public interface IAlumno: Comparable
 	{
 		string getNombre();
 		int getLegajo();

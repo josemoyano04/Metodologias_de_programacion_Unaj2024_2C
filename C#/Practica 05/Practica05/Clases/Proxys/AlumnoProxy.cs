@@ -94,7 +94,19 @@ namespace Practica05
 		{
 			((Alumno)obtenerAlumnoReal()).actualizar(o);
 		}
-		
+
+		public bool sosIgual(Comparable comp)
+		{
+			return ((IAlumno)obtenerAlumnoReal()).sosIgual(comp);
+		}
+		public bool sosMenor(Comparable comp)
+		{
+			return ((IAlumno)obtenerAlumnoReal()).sosMenor(comp);
+		}
+		public bool sosMayor(Comparable comp)
+		{
+			return ((IAlumno)obtenerAlumnoReal()).sosMayor(comp);
+		}		
 		//Funciones auxiliares
 		protected virtual IAlumno obtenerAlumnoReal(){
 			if(alumnoReal == null)

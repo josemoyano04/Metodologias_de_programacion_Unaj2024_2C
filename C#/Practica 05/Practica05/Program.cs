@@ -2,8 +2,8 @@
 using System;
 using System.Linq;
 using System.Threading;
-using System.Diagnostics;
 using MDPI;
+using System.Diagnostics;
 
 namespace Practica05
 {
@@ -11,30 +11,20 @@ namespace Practica05
 	{
 		public static void Main(string[] args)
 		{
-			Stopwatch stopwatch = new Stopwatch(); // Crear un objeto Stopwatch
-			stopwatch.Start(); // Iniciar la medición del tiempo
+			Stopwatch s = new Stopwatch();
+			s.Start();
 			
-			Teacher teacher = new Teacher();
+			PilaProxy pila = new PilaProxy();
+			Aula aula = new Aula();
+			pila.setOrdenInicio(new OrdenInicio(aula));
+			pila.setOrdenLlegaAlumno(new OrdenLlegaAlumno(aula));
+			pila.setOrdenAulaLlena(new OrdenAulaLlena(aula));
 			
-			//Agregado de 20 Students Decorados
-			for (int i = 0; i < 10; i++) {
-				
-				//Creacion de AlumnoAdapter Decorado
-				AlumnoAdapter alumnoBase = StudentsFactory.crearAleatorio(0);
-				
-				//Creacion de AlumnoAdapter Muy Estudioso Decorado
-				AlumnoAdapter alumnoMuyEstudioso = StudentsFactory.crearAleatorio(1);
-				
-				teacher.goToClass(alumnoBase);
-				teacher.goToClass(alumnoMuyEstudioso);
-			}
+			llenar(pila, 5);
+			llenar(pila, 6);
 			
-			teacher.teachingAClass();
-
-			Console.Write("Ok 200");
-			stopwatch.Stop(); // Detener la medición del tiempo
-
-			Console.WriteLine("El tiempo de ejecución fue: {0} ms", stopwatch.ElapsedMilliseconds);
+			s.Stop();
+			Console.WriteLine("Tiempo de ejecución: {0} ms", s.ElapsedMilliseconds);
 			Console.ReadKey(true);
 		}
 
@@ -48,18 +38,40 @@ namespace Practica05
 		/// <param name="coll">Instancia de Coleccionable</param>
 		/// <param name="opcion">
 		/// Tipos de instancia a agregar:
-		/// 0 = New Numero() | 1 = New Profesor() | 2 = New Alumno()
+		/// 0 = New Numero() | 1 = New Profesor() | 2 = New Alumno() |
+		/// 3 = New AlumnoFavorito() | 4 = New AlumnoMuyEstudioso() |
+		/// 5 = New AlumnoAdapter(Alumno) | 6 = New AlumnoAdapter(AlumnoMuyEstudioso)
 		/// </param>
 		public static void llenar(Coleccionable coll, int opcion)
 		{
-
-			for (int i = 0; i < 20; i++)
+			if(opcion >= 1 && opcion <= 4)
 			{
-				Comparable c = FabricaDeComparables.crearAleatorio(opcion);
-				coll.agregar(c);
-				//Espera de 1 milisegundo a fin de que la instancia de Random no repita los mismos valores
-				Thread.Sleep(1);
+				for (int i = 0; i < 20; i++)
+				{
+					Comparable c = FabricaDeComparables.crearAleatorio(opcion);
+					coll.agregar(c);
+					//Espera de 1 milisegundo a fin de que la instancia de Random no repita los mismos valores
+					Thread.Sleep(1);
+				}
+				return; //Una vez agregados los elementos, ejecuta una parada de la funcion evitando comparaciones siguientes no necesarias
 			}
+			
+			int opcionAdaptada = opcion - 5; //Altera la opcion original restando 4 a su valor para adaptarla
+			// a las opciones admitidas por StudentFactory
+			if(opcion >= 5 && opcion <= 6)
+			{
+				
+				for (int i = 0; i < 20; i++)
+				{
+					Comparable c = (AlumnoAdapter)StudentsFactory.crearAleatorio(opcionAdaptada);
+					Console.WriteLine("Agregado: {0}", ((AlumnoAdapter)c).getName()); //****************************************
+					coll.agregar(c);
+					//Espera de 1 milisegundo a fin de que la instancia de Random no repita los mismos valores
+					Thread.Sleep(1);
+				}
+				Console.WriteLine(); //****************************************
+			}
+			
 		}
 
 		public static void informar(Coleccionable coll, int opcion)
@@ -158,7 +170,6 @@ namespace Practica05
 
 		}
 
-		//Ejercicio 13
 		public static void dictadoDeClases(Profesor p)
 		{
 			for (int i = 0; i < 5; i++)
@@ -253,6 +264,25 @@ namespace Practica05
 
 
 			//Dictado de clase
+
+			Console.ReadKey(true);
+		}
+		public static void mainPractica04(){
+			Teacher teacher = new Teacher();
+			
+			//Agregado de 20 Students Decorados
+			for (int i = 0; i < 10; i++) {
+				
+				//Creacion de AlumnoAdapter Decorado
+				AlumnoAdapter alumnoBase = StudentsFactory.crearAleatorio(0);
+				
+				//Creacion de AlumnoAdapter Muy Estudioso Decorado
+				AlumnoAdapter alumnoMuyEstudioso = StudentsFactory.crearAleatorio(1);
+				
+				teacher.goToClass(alumnoBase);
+				teacher.goToClass(alumnoMuyEstudioso);
+			}
+			teacher.teachingAClass();
 
 			Console.ReadKey(true);
 		}

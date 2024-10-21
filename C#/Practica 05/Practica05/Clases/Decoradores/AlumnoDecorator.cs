@@ -45,5 +45,22 @@ namespace Practica05
 		{
 			return this.alumno.mostrarCalificacion();
 		}
+
+		public bool sosIgual(Comparable comp)
+		{
+			return this.alumno.sosIgual(comp);
+		}
+
+		public bool sosMenor(Comparable comp)
+		{
+			return this.alumno.sosMenor(comp);
+			
+		}
+
+		public bool sosMayor(Comparable comp)
+		{
+			return this.alumno.sosMayor(comp);
+			
+		}
 	}
 }

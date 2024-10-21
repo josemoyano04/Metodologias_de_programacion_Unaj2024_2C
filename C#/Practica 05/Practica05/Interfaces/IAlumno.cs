@@ -7,8 +7,11 @@ namespace Practica05
 	{
 		string getNombre();
 		int getLegajo();
-		int getCalificacion();
+  		int getCalificacion();
 		void setCalificacion(int c);
+		
+		void prestarAtencion();
+		void distraerse();
 		int responderPregunta(int p);
 		string mostrarCalificacion();
 	}

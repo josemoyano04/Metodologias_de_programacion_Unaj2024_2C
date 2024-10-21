@@ -53,6 +53,7 @@ namespace Practica05
         {
             return this.calificacion;
         }
+        
         public void setCalificacion(int c)
         {
             this.calificacion = c;

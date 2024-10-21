@@ -29,6 +29,14 @@ namespace Practica05
 			this.alumno.setCalificacion(c);
 		}
 		
+		public void prestarAtencion(){
+			this.alumno.prestarAtencion();
+		}
+		
+		public void distraerse(){
+			this.alumno.distraerse();
+		}
+		
 		public int responderPregunta(int p){
 			return this.alumno.responderPregunta(p);
 		}
@@ -37,6 +45,5 @@ namespace Practica05
 		{
 			return this.alumno.mostrarCalificacion();
 		}
-		
 	}
 }

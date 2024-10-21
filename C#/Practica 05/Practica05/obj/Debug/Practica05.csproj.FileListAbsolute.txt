@@ -1,0 +1,6 @@
+C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 05\Practica05\obj\Debug\Practica05.csprojResolveAssemblyReference.cache
+C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 05\Practica05\bin\Debug\Practica05.exe.config
+C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 05\Practica05\bin\Debug\Practica05.exe
+C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 05\Practica05\bin\Debug\Practica05.pdb
+C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 05\Practica05\obj\Debug\Practica05.exe
+C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 05\Practica05\obj\Debug\Practica05.pdb

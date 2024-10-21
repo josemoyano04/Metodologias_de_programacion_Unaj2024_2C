@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Threading;
+using System.Diagnostics;
 using MDPI;
 
 namespace Practica05
@@ -10,14 +11,16 @@ namespace Practica05
 	{
 		public static void Main(string[] args)
 		{
+			Stopwatch stopwatch = new Stopwatch(); // Crear un objeto Stopwatch
+			stopwatch.Start(); // Iniciar la medición del tiempo
 			
 			Teacher teacher = new Teacher();
 			
-			//Agregado de 20 Students Decorados 
+			//Agregado de 20 Students Decorados
 			for (int i = 0; i < 10; i++) {
 				
 				//Creacion de AlumnoAdapter Decorado
-				AlumnoAdapter alumnoBase = StudentsFactory.crearAleatorio(0); 
+				AlumnoAdapter alumnoBase = StudentsFactory.crearAleatorio(0);
 				
 				//Creacion de AlumnoAdapter Muy Estudioso Decorado
 				AlumnoAdapter alumnoMuyEstudioso = StudentsFactory.crearAleatorio(1);
@@ -29,6 +32,9 @@ namespace Practica05
 			teacher.teachingAClass();
 
 			Console.Write("Ok 200");
+			stopwatch.Stop(); // Detener la medición del tiempo
+
+			Console.WriteLine("El tiempo de ejecución fue: {0} ms", stopwatch.ElapsedMilliseconds);
 			Console.ReadKey(true);
 		}
 

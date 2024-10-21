@@ -5,6 +5,9 @@ namespace Practica05
 {
 	public abstract class StudentsFactory
 	{
+		protected GeneradorDeDatosAleatorios aleatorio = new GeneradorDeDatosAleatorios();
+		protected LectorDeDatos teclado = new LectorDeDatos();
+		
 		public abstract AlumnoAdapter crearAleatorio();
 		public abstract AlumnoAdapter crearPorteclado();
 

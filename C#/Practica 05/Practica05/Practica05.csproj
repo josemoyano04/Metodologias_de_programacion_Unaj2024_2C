@@ -55,6 +55,11 @@
     <Compile Include="Clases\Collecciones\Iteradores\IteradorDiccionario.cs" />
     <Compile Include="Clases\Collecciones\Iteradores\IteradorPila.cs" />
     <Compile Include="Clases\Collecciones\Pila.cs" />
+    <Compile Include="Clases\Command\OrdenAulaLlena.cs" />
+    <Compile Include="Clases\Command\OrdenEnAula1.cs" />
+    <Compile Include="Clases\Command\OrdenEnAula2.cs" />
+    <Compile Include="Clases\Command\OrdenInicio.cs" />
+    <Compile Include="Clases\Command\OrdenLlegaAlumno.cs" />
     <Compile Include="Clases\Decoradores\AlumnoDecoradoCalificacionEnLetras.cs" />
     <Compile Include="Clases\Decoradores\AlumnoDecoradoEstadoPromocion.cs" />
     <Compile Include="Clases\Decoradores\AlumnoDecoradoLegajo.cs" />
@@ -84,11 +89,14 @@
     <Compile Include="Clases\Modelos\Alumno.cs" />
     <Compile Include="Clases\Modelos\AlumnoFavorito.cs" />
     <Compile Include="Clases\Modelos\AlumnoMuyEstudioso.cs" />
+    <Compile Include="Clases\Modelos\Aula.cs" />
     <Compile Include="Clases\Modelos\ClaveValor.cs" />
     <Compile Include="Clases\Modelos\Numero.cs" />
     <Compile Include="Clases\Modelos\Persona.cs" />
     <Compile Include="Clases\Modelos\Profesor.cs" />
     <Compile Include="Clases\Modelos\Cadena.cs" />
+    <Compile Include="Clases\Proxys\AlumnoMuyEstudiosoProxy.cs" />
+    <Compile Include="Clases\Proxys\AlumnoProxy.cs" />
     <Compile Include="Clases\Utilidades\GeneradorDeDatosAleatorios.cs" />
     <Compile Include="Clases\Utilidades\LectorDeDatos.cs" />
     <Compile Include="Clases\Utilidades\MDPI.cs" />
@@ -100,6 +108,7 @@
     <Compile Include="Interfaces\IIterador.cs" />
     <Compile Include="Interfaces\IObservado.cs" />
     <Compile Include="Interfaces\IObservador.cs" />
+    <Compile Include="Interfaces\Ordenable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -112,6 +121,8 @@
     <Folder Include="Clases\Collecciones\Iteradores" />
     <Folder Include="Clases\Adaptadores" />
     <Folder Include="Clases\Decoradores" />
+    <Folder Include="Clases\Command" />
+    <Folder Include="Clases\Proxys" />
     <Folder Include="Clases\Fabricas" />
     <Folder Include="Clases\Fabricas\Comparables" />
     <Folder Include="Clases\Fabricas\Colecciones" />

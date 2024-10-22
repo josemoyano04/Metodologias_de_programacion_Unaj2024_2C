@@ -9,6 +9,7 @@ namespace Practica06
 		int getLegajo();
   		int getCalificacion();
 		void setCalificacion(int c);
+			
 		
 		void prestarAtencion();
 		void distraerse();

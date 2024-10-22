@@ -79,7 +79,7 @@ namespace Practica06
 
         public virtual int responderPregunta(int pregunta)
         {
-            return random.Next(0, 3);
+            return random.Next(1, 4);
         }
 
         public virtual string mostrarCalificacion()

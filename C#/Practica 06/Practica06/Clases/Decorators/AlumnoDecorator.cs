@@ -48,7 +48,13 @@ namespace Practica06
 
 		public bool sosIgual(Comparable comp)
 		{
-			return this.alumno.sosIgual(comp);
+			bool algunoEsIgual = false;
+			
+			foreach (IAlumno a in hijos) {
+				if(a.sosIgual(comp))
+					algunoEsIgual = true;
+			}
+			return algunoEsIgual;
 		}
 
 		public bool sosMenor(Comparable comp)

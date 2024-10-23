@@ -44,23 +44,30 @@ namespace Practica06
 
 		public void setCalificacion(int c)
 		{
-			throw new NotImplementedException();
+			foreach (IAlumno a in hijos) {
+				a.setCalificacion(c);
+			}
 		}
 
 		public void prestarAtencion()
 		{
-			throw new NotImplementedException();
+			foreach (IAlumno a in hijos) {
+				a.prestarAtencion();
+			}
 		}
 
 		public void distraerse()
 		{
-			throw new NotImplementedException();
+			foreach (IAlumno a in hijos) {
+				a.distraerse();
+			}
 		}
 
 		public int responderPregunta(int p)
 		{
-			List<int> respuestas = respuestasDePreguntas();
-			Diccionario contadorRespuesta = new Diccionario();
+			List<int> respuestas = respuestasDePreguntas(p);
+			Diccionario contadorRespuesta = new Diccionario(); // Guarda la estructura ClaveValor:
+			// (clave: respuesta, valor: cantidad de veces que aparece la respuesta)
 			
 			
 			//Mi logica consta en usar un Diccionario implementado en anteriores actividades
@@ -68,15 +75,49 @@ namespace Practica06
 			//como clave, y el contador como valor.
 			
 			foreach (int respuesta in respuestas) {
-				if(contadorRespuesta.contiene(new Numero(respuesta)))
+				Numero r = new Numero(respuesta);
+				if(contadorRespuesta.contiene(r))
 				{
-					 
+					int cont = ((Numero)contadorRespuesta.valorDe(r)).getValor(); //Recupero el valor del contador actual
+					Numero nuevoValorContador = new Numero(cont + 1); //Incremento en 1 el valor del contador
+					contadorRespuesta.valorDe(r);
+					
+					contadorRespuesta.agregar(clave: r, valor: nuevoValorContador); //Vuelvo a guardar el valor actualizado
+				}
+				else
+				{
+					contadorRespuesta.agregar(clave: r, valor: new Numero(1)); //Si la respuesta no esta guardada en el Diccionario,
+																			   //con contador = 1
 				}
 			}
 			
-			return max; //Falta logica para identificar el mayor
+			
+			//Obtencion de respuesta mas votada:
+			int maxContador = -1;
+			int respuestaMasVotada = -1;
+			
+			
+			IteradorDiccionario iterado = new IteradorDiccionario(contadorRespuesta);
+			
+			while (iterado.fin()) {
+				ClaveValor cvActual = (ClaveValor)iterado.actual();
+				
+				int valorRespuestaActual = ((Numero)cvActual.GetClave()).getValor(); //Recupero el valor de la respuesta
+				int valorContadorActual = ((Numero)cvActual.GetValor()).getValor(); //Recupero el valor del contador de la respuesta
+				
+				if (valorContadorActual > maxContador){
+					maxContador = valorContadorActual;
+					respuestaMasVotada = valorRespuestaActual;
+				}
+				
+				iterado.siguiente();
+			}
+			
+			
+			
+			return respuestaMasVotada;
 		}
-		public List<int> respuestasDePreguntas(int p) //Funcion auxiliar
+		private List<int> respuestasDePreguntas(int p) //Funcion auxiliar
 		{
 			List<int> respuestas = new List<int>();
 			
@@ -86,7 +127,7 @@ namespace Practica06
 				respuestas.Add(respuesta);
 				
 				//En caso de que el hijo sea un Alumno compuesto, se realiza recursion
-				if(hijo.GetType == typeof(AlumnoCompuesto)){ 
+				if(hijo.GetType() == typeof(AlumnoCompuesto)){
 					respuestas.AddRange(((AlumnoCompuesto)hijo).respuestasDePreguntas(p));
 				}
 			}
@@ -96,7 +137,9 @@ namespace Practica06
 
 		public string mostrarCalificacion()
 		{
-			throw new NotImplementedException();
+			foreach (IAlumno a in hijos) {
+				a.mostrarCalificacion();
+			}
 		}
 
 		#endregion

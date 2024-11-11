@@ -73,6 +73,7 @@
     <Compile Include="Clases\Factories\Comparables\Alumnos\FabricaDeAlumnoProxy.cs" />
     <Compile Include="Clases\Factories\Comparables\Alumnos\FabricaDeAlumnos.cs" />
     <Compile Include="Clases\Factories\Comparables\Alumnos\FabricaDeAlumnosFavoritos.cs" />
+    <Compile Include="Clases\Juegos de carta\JodeteJuego.cs" />
     <Compile Include="Clases\Juegos de carta\MazosCartas.cs" />
     <Compile Include="Clases\Strategies\CompAlumnPorDni.cs" />
     <Compile Include="Clases\Strategies\CompAlumnPorLegajo.cs" />

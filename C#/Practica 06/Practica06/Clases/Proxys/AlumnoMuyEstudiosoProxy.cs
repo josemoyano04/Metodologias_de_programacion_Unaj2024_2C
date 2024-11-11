@@ -16,6 +16,10 @@ namespace Practica06
 			this.promedio = promedio;
 		}
 		
+		public override int responderPregunta(int p)
+		{
+			return ((AlumnoMuyEstudioso)obtenerAlumnoReal()).responderPregunta(p);
+		}
 		
 		//Funcion auxiliar
 		protected override IAlumno obtenerAlumnoReal(){

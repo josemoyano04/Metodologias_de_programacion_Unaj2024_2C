@@ -37,9 +37,16 @@ namespace Practica06
 			throw new NotImplementedException();
 		}
 
-		public int getCalificacion()
+		public int getCalificacion()//Obtiene la mayor calificiacion
 		{
-			throw new NotImplementedException();
+			int maxCalificacion = 0;
+			
+			foreach (IAlumno a in hijos) {
+				if(a.getCalificacion() > maxCalificacion) 
+					maxCalificacion = a.getCalificacion();
+			}
+			
+			return maxCalificacion;
 		}
 
 		public void setCalificacion(int c)
@@ -65,81 +72,52 @@ namespace Practica06
 
 		public int responderPregunta(int p)
 		{
-			List<int> respuestas = respuestasDePreguntas(p);
-			Diccionario contadorRespuesta = new Diccionario(); // Guarda la estructura ClaveValor:
-			// (clave: respuesta, valor: cantidad de veces que aparece la respuesta)
+			//Contadores de respuestas
+			int cont1 = 0;
+			int cont2 = 0;
+			int cont3 = 0;
 			
-			
-			//Mi logica consta en usar un Diccionario implementado en anteriores actividades
-			//a fin de llevar un conteo de las respuestas, colocando la respuesta concreta
-			//como clave, y el contador como valor.
-			
-			foreach (int respuesta in respuestas) {
-				Numero r = new Numero(respuesta);
-				if(contadorRespuesta.contiene(r))
+			foreach (IAlumno a in hijos)
+			{
+				int resp = a.responderPregunta(p);
+				
+				switch(resp)
 				{
-					int cont = ((Numero)contadorRespuesta.valorDe(r)).getValor(); //Recupero el valor del contador actual
-					Numero nuevoValorContador = new Numero(cont + 1); //Incremento en 1 el valor del contador
-					contadorRespuesta.valorDe(r);
-					
-					contadorRespuesta.agregar(clave: r, valor: nuevoValorContador); //Vuelvo a guardar el valor actualizado
-				}
-				else
-				{
-					contadorRespuesta.agregar(clave: r, valor: new Numero(1)); //Si la respuesta no esta guardada en el Diccionario,
-																			   //con contador = 1
+					case 1:
+						cont1++; break;
+					case 2:
+						cont2++; break;
+						
+					case 3:
+						cont3++; break;
+						
 				}
 			}
 			
 			
-			//Obtencion de respuesta mas votada:
-			int maxContador = -1;
-			int respuestaMasVotada = -1;
+			int maxVotos = Math.Max(cont1, Math.Max(cont2, cont3));
+
+			List<int> respMasVotada = new List<int>();
+
+			if (cont1 == maxVotos) respMasVotada.Add(1);
+			if (cont2 == maxVotos) respMasVotada.Add(2);
+			if (cont3 == maxVotos) respMasVotada.Add(3);
+
 			
-			
-			IteradorDiccionario iterado = new IteradorDiccionario(contadorRespuesta);
-			
-			while (iterado.fin()) {
-				ClaveValor cvActual = (ClaveValor)iterado.actual();
-				
-				int valorRespuestaActual = ((Numero)cvActual.GetClave()).getValor(); //Recupero el valor de la respuesta
-				int valorContadorActual = ((Numero)cvActual.GetValor()).getValor(); //Recupero el valor del contador de la respuesta
-				
-				if (valorContadorActual > maxContador){
-					maxContador = valorContadorActual;
-					respuestaMasVotada = valorRespuestaActual;
-				}
-				
-				iterado.siguiente();
-			}
-			
-			
-			
-			return respuestaMasVotada;
-		}
-		private List<int> respuestasDePreguntas(int p) //Funcion auxiliar
-		{
-			List<int> respuestas = new List<int>();
-			
-			foreach (IAlumno hijo in hijos) {
-				
-				int respuesta = hijo.responderPregunta(p);
-				respuestas.Add(respuesta);
-				
-				//En caso de que el hijo sea un Alumno compuesto, se realiza recursion
-				if(hijo.GetType() == typeof(AlumnoCompuesto)){
-					respuestas.AddRange(((AlumnoCompuesto)hijo).respuestasDePreguntas(p));
-				}
-			}
-			return respuestas;
+			Random random = new Random();
+			return respMasVotada[random.Next(respMasVotada.Count)];
 		}
 		
 
 		public string mostrarCalificacion()
 		{
-			foreach (IAlumno a in hijos) {
-				a.mostrarCalificacion();
+			string calificaciones = "";
+			foreach (IAlumno hijo in hijos)
+			{
+				calificaciones += "\n"+hijo.mostrarCalificacion();
 			}
+			return calificaciones;
+			
 		}
 
 		#endregion
@@ -148,17 +126,33 @@ namespace Practica06
 
 		public bool sosIgual(Comparable comp)
 		{
-			throw new NotImplementedException();
+			bool algunoEsIgual = false;
+			
+			foreach (IAlumno a in hijos) {
+				if(a.sosIgual(comp))
+					algunoEsIgual = true; break;
+				
+			}
+			return algunoEsIgual;
 		}
 
 		public bool sosMenor(Comparable comp)
 		{
-			throw new NotImplementedException();
+			foreach (IAlumno a in hijos){
+				if(!a.sosMenor(comp))
+					return false;
+			}
+			return true;
 		}
+		
 
 		public bool sosMayor(Comparable comp)
 		{
-			throw new NotImplementedException();
+			foreach (IAlumno a in hijos) {
+				if(!a.sosMayor(comp))
+					return false;
+			}
+			return true;
 		}
 
 		#endregion

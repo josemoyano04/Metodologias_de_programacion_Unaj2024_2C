@@ -7,6 +7,13 @@ namespace Practica06
 {
 	public class Pila: Coleccionable, IIterable, Ordenable, IObservado
 	{
+		/*Flag para pruebas con alumno compuesto, setear pruebaActiva en false
+		para activar el aula llena en 40 IAlumnos indistintos */
+		
+		bool pruebaActiva = true; int compuestosProbados = 2;
+		
+		/*.....................................................*/
+		
 		//Atributos
 		private OrdenEnAula1 ordenInicio;
 		private OrdenEnAula2 ordenLLegaAlumno;
@@ -82,20 +89,23 @@ namespace Practica06
 			if(es_vacia()) //Si la coleccion es vacia, es porque el elemento a agregar es el primero
 			{
 				ordenInicio.ejecutar();
-				apilar(comp);
 				ordenLLegaAlumno.ejecutar(comp);
+				apilar(comp);
 			}
 			
 			//Si la coleccion tiene 40 elementos, la clase comienza
-			if(cuantos() == 40) 
-			{
+			if(cuantos() == 40 && !pruebaActiva)
 				ordenAulaLlena.ejecutar();
-			}
+			
+			if(cuantos() == compuestosProbados && pruebaActiva)
+				ordenAulaLlena.ejecutar();
+				
 			else //mientras que la coleccion no tenga 40 elementos, se van a seguir agregando
 			{
-				apilar(comp);
 				ordenLLegaAlumno.ejecutar(comp);
+				apilar(comp);
 			}
+			
 		}
 		
 		//Metodo auxiliar no solicitado; utiliza polimorfismo y un nuevo parametro booleano para forzar el agregado de un elemento a la coleccion

@@ -7,14 +7,14 @@ namespace Practica06
 	{
 		string getNombre();
 		int getLegajo();
-  		int getCalificacion();
+		int getCalificacion();
 		void setCalificacion(int c);
-			
+		string mostrarCalificacion();
+		int responderPregunta(int p);
+		
 		
 		void prestarAtencion();
 		void distraerse();
-		int responderPregunta(int p);
-		string mostrarCalificacion();
 	}
 	
 }

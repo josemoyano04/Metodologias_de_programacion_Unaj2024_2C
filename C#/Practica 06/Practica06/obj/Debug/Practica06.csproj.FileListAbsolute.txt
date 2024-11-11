@@ -4,3 +4,9 @@ C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de pr
 C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 06\Practica06\bin\Debug\Practica06.pdb
 C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 06\Practica06\obj\Debug\Practica06.exe
 C:\Users\pc\Documents\Universidad\Unaj 2024\2C_2do año (2024\Metodologias de programacion I\C#\Practica 06\Practica06\obj\Debug\Practica06.pdb
+C:\Dev\Universidad\C#\Metodologias_de_programacion_Unaj2024_2C\C#\Practica 06\Practica06\obj\Debug\Practica06.csprojResolveAssemblyReference.cache
+C:\Dev\Universidad\C#\Metodologias_de_programacion_Unaj2024_2C\C#\Practica 06\Practica06\obj\Debug\Practica06.exe
+C:\Dev\Universidad\C#\Metodologias_de_programacion_Unaj2024_2C\C#\Practica 06\Practica06\bin\Debug\Practica06.exe.config
+C:\Dev\Universidad\C#\Metodologias_de_programacion_Unaj2024_2C\C#\Practica 06\Practica06\bin\Debug\Practica06.exe
+C:\Dev\Universidad\C#\Metodologias_de_programacion_Unaj2024_2C\C#\Practica 06\Practica06\bin\Debug\Practica06.pdb
+C:\Dev\Universidad\C#\Metodologias_de_programacion_Unaj2024_2C\C#\Practica 06\Practica06\obj\Debug\Practica06.pdb

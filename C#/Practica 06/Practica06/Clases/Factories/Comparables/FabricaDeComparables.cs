@@ -8,7 +8,17 @@ namespace Practica06
 		protected GeneradorDeDatosAleatorios aleatorio = new GeneradorDeDatosAleatorios();
 		protected LectorDeDatos teclado = new LectorDeDatos();
 
-
+		//Valores constantes de opciones:
+		private const int NUMERO = 0;
+		private const int PROFESOR = 1;
+		private const int ALUMNO = 2;
+		private const int ALUMNO_FAVORITO = 3;
+		private const int ALUMNO_MUY_ESTUDIOSO = 4;
+		private const int ALUMNO_PROXY = 5;
+		private const int ALUMNO_MUY_ESTUDIOSO_PROXY = 6;
+		private const int ALUMNO_COMPUESTO_BASICO = 7;
+		private const int ALUMNO_COMPUESTO_MUY_ESTUDIOSO = 8;
+		
 		//Metodos abstractos a implementar en subclases
 		public abstract Comparable crearAleatorio();
 		public abstract Comparable crearPorTeclado();
@@ -21,32 +31,15 @@ namespace Practica06
 		/// </summary>
 		/// <param name="opcion">
 		/// Tipos de instancia a crear:
-		/// 0 = new Numero() | 1 = new Profesor() | 2 = new Alumno() |
-		/// 3 = new AlumnoFavorito() | 4 = new FabricaDeAlumnosMuyEstudiosos()
+		/// 0 = Numero| 1 = Profesor | 2 = Alumno |
+		/// 3 = AlumnoFavorito | 4 = FabricaDeAlumnosMuyEstudiosos |
+		/// 5 = AlumnoProxy | 6 = AlumnoMuyEstudiosoProxy |
+		/// 7 = AlumnoCompuesto (x5 AlumnoProxy) | 
+		/// 8 = AlumnoCompuesto (x5 AlumnoMuyEstudiosoProxy)
 		/// </param>
 		public static Comparable crearAleatorio(int opcion)
 		{
-			FabricaDeComparables fabrica = null;
-			switch (opcion)
-			{
-				case 0: //Fabrica de números
-					fabrica = new FabricaDeNumeros();
-					break;
-				case 1: //Fabrica de profesor
-					fabrica = new FabricaDeProfesor();
-					break;
-				case 2: //Fabrica de alumnos
-					fabrica = new FabricaDeAlumnos();
-					break;
-				case 3: //Fabrica de alumnos favoritos
-					fabrica = new FabricaDeAlumnosFavoritos();
-					break;
-				case 4: //Fabrica de alumnos muy estudiosos
-					fabrica = new FabricaDeAlumnosMuyEstudiosos();
-					break;
-			}
-
-			return fabrica.crearAleatorio();
+			return obtenerFabrica(opcion).crearAleatorio();
 		}
 
 		/// <summary>
@@ -54,32 +47,54 @@ namespace Practica06
 		/// </summary>
 		/// <param name="opcion">
 		/// Tipos de instancia a crear:
-		/// 0 = new Numero() | 1 = new Profesor() | 2 = new Alumno() |
-		/// 3 = new AlumnoFavorito() | 4 = new FabricaDeAlumnosMuyEstudiosos()
+		/// 0 = Numero| 1 = Profesor | 2 = Alumno |
+		/// 3 = AlumnoFavorito | 4 = FabricaDeAlumnosMuyEstudiosos |
+		/// 5 = AlumnoProxy | 6 = AlumnoMuyEstudiosoProxy |
+		/// 7 = AlumnoCompuesto (x5 AlumnoProxy) | 
+		/// 8 = AlumnoCompuesto (x5 AlumnoMuyEstudiosoProxy)
 		/// </param>
+		
 		public static Comparable crearPorTeclado(int opcion)
 		{
+			return obtenerFabrica(opcion).crearPorTeclado();
+		}
+		
+		public static FabricaDeComparables obtenerFabrica(int opcion){
 			FabricaDeComparables fabrica = null;
 			switch (opcion)
 			{
-				case 0: //Fabrica de números
+				case NUMERO: //Fabrica de números
 					fabrica = new FabricaDeNumeros();
 					break;
-				case 1: //Fabrica de profesor
+				case PROFESOR: //Fabrica de profesor
 					fabrica = new FabricaDeProfesor();
 					break;
-				case 2: //Fabrica de alumnos
+				case ALUMNO: //Fabrica de alumnos
 					fabrica = new FabricaDeAlumnos();
 					break;
-				case 3: //Fabrica de alumnos favoritos
+				case ALUMNO_FAVORITO: //Fabrica de alumnos favoritos
 					fabrica = new FabricaDeAlumnosFavoritos();
 					break;
-				case 4: //Fabrica de alumnos muy estudiosos
+				case ALUMNO_MUY_ESTUDIOSO: //Fabrica de alumnos muy estudiosos
 					fabrica = new FabricaDeAlumnosMuyEstudiosos();
+					break;
+				case ALUMNO_PROXY:
+					fabrica = new FabricaDeAlumnoProxy();
+					break;
+				case ALUMNO_MUY_ESTUDIOSO_PROXY:
+					fabrica = new FabricaDeAlumnoMuyEstudiosoProxy();
+					break;
+				case ALUMNO_COMPUESTO_BASICO:
+					//Contiene como hijos 5 alumnos proxy
+					fabrica = new FabricaDeAlumnoCompuesto(1);
+					break;
+				case ALUMNO_COMPUESTO_MUY_ESTUDIOSO:
+					//Contiene como hijos 5 alumnos muy estudisos proxy
+					fabrica = new FabricaDeAlumnoCompuesto(2);
 					break;
 			}
 
-			return fabrica.crearPorTeclado();
+			return fabrica;
 		}
 	}
 }

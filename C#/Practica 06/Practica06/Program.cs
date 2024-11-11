@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using MDPI;
-using System.Diagnostics;
+
 
 namespace Practica06
 {
@@ -11,8 +11,13 @@ namespace Practica06
 	{
 		public static void Main(string[] args)
 		{
-			Stopwatch s = new Stopwatch();
-			s.Start();
+			AlumnoCompuesto compuesto = (AlumnoCompuesto)FabricaDeComparables.crearAleatorio(7);
+			AlumnoCompuesto compuestoMuyEstudioso = (AlumnoCompuesto)FabricaDeComparables.crearAleatorio(8);
+			
+			
+			//Adaptacion del Alumno Compuesto para funcionar en el sistema MDPI
+			AlumnoAdapter compuestoAdapter = new AlumnoAdapter(compuesto);
+			AlumnoAdapter compuestoMuyEstudiosoAdapter = new AlumnoAdapter(compuestoMuyEstudioso);
 			
 			PilaProxy pila = new PilaProxy();
 			Aula aula = new Aula();
@@ -20,11 +25,15 @@ namespace Practica06
 			pila.setOrdenLlegaAlumno(new OrdenLlegaAlumno(aula));
 			pila.setOrdenAulaLlena(new OrdenAulaLlena(aula));
 			
-			llenar(pila, 5);
-			llenar(pila, 6);
+			//Falla. Muestra 2 veces repetidas los resultados del examen del primer elem agregado:
+			//(No encuentro el problema, todo parece bien estructurado)
+			pila.agregar(compuestoMuyEstudiosoAdapter);
+			Thread.Sleep(100);
+			pila.agregar(compuestoAdapter);
 			
-			s.Stop();
-			Console.WriteLine("Tiempo de ejecución: {0} ms", s.ElapsedMilliseconds);
+//			llenar(pila, 5);
+//			llenar(pila, 6);
+			
 			Console.ReadKey(true);
 		}
 

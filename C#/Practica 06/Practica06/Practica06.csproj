@@ -67,6 +67,13 @@
     <Compile Include="Clases\Decorators\AlumnoDecoradoRecuadro.cs" />
     <Compile Include="Clases\Decorators\AlumnoDecoradoSecuenciaNumerica.cs" />
     <Compile Include="Clases\Decorators\AlumnoDecorator.cs" />
+    <Compile Include="Clases\Factories\Comparables\Alumnos\FabricaDeAlumnoCompuesto.cs" />
+    <Compile Include="Clases\Factories\Comparables\Alumnos\FabricaDeAlumnoMuyEstudioso.cs" />
+    <Compile Include="Clases\Factories\Comparables\Alumnos\FabricaDeAlumnoMuyEstudiosoProxy.cs" />
+    <Compile Include="Clases\Factories\Comparables\Alumnos\FabricaDeAlumnoProxy.cs" />
+    <Compile Include="Clases\Factories\Comparables\Alumnos\FabricaDeAlumnos.cs" />
+    <Compile Include="Clases\Factories\Comparables\Alumnos\FabricaDeAlumnosFavoritos.cs" />
+    <Compile Include="Clases\Juegos de carta\MazosCartas.cs" />
     <Compile Include="Clases\Strategies\CompAlumnPorDni.cs" />
     <Compile Include="Clases\Strategies\CompAlumnPorLegajo.cs" />
     <Compile Include="Clases\Strategies\CompAlumnPorNombre.cs" />
@@ -77,9 +84,6 @@
     <Compile Include="Clases\Factories\Colecciones\FabricaDeConjunto.cs" />
     <Compile Include="Clases\Factories\Colecciones\FabricaDeDiccionario.cs" />
     <Compile Include="Clases\Factories\Colecciones\FabricaDePila.cs" />
-    <Compile Include="Clases\Factories\Comparables\FabricaDeAlumnoMuyEstudioso.cs" />
-    <Compile Include="Clases\Factories\Comparables\FabricaDeAlumnosFavoritos.cs" />
-    <Compile Include="Clases\Factories\Comparables\FabricaDeAlumnos.cs" />
     <Compile Include="Clases\Factories\Comparables\FabricaDeComparables.cs" />
     <Compile Include="Clases\Factories\Comparables\FabricaDeNumeros.cs" />
     <Compile Include="Clases\Factories\Comparables\FabricaDePersonas.cs" />
@@ -101,6 +105,7 @@
     <Compile Include="Clases\Proxys\ColaProxy.cs" />
     <Compile Include="Clases\Proxys\ConjuntoProxy.cs" />
     <Compile Include="Clases\Proxys\PilaProxy.cs" />
+    <Compile Include="Clases\Templates\JuegoDeCartasTemplate.cs" />
     <Compile Include="Clases\Utilities\GeneradorDeDatosAleatorios.cs" />
     <Compile Include="Clases\Utilities\LectorDeDatos.cs" />
     <Compile Include="Clases\Utilities\MDPI.cs" />
@@ -127,6 +132,9 @@
     <Folder Include="Clases\Decorators" />
     <Folder Include="Clases\Command" />
     <Folder Include="Clases\Composites" />
+    <Folder Include="Clases\Juegos de carta" />
+    <Folder Include="Clases\Templates" />
+    <Folder Include="Clases\Factories\Comparables\Alumnos" />
     <Folder Include="Clases\Proxys" />
     <Folder Include="Clases\Factories" />
     <Folder Include="Clases\Factories\Comparables" />

@@ -6,11 +6,12 @@ namespace Practica06
 	public class JodeteJuego : JuegoDeCartasTemplate
 	{
 		
-		private const int CARTAS_INICIALES_POR_JUGADOR = 7;
+		private const int CARTAS_INICIALES_POR_JUGADOR = 5;
 		
-		public JodeteJuego()
+		public JodeteJuego(int cantPartidas)
 		{
 			this.mazo = MazosCartas.X50CartasEspañolas();
+			this.cantVictorias = cantPartidas;
 		}
 
 		public override void repartirCartasIniciales()

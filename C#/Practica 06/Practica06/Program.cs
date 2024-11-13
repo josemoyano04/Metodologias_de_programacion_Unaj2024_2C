@@ -11,30 +11,35 @@ namespace Practica06
 	{
 		public static void Main(string[] args)
 		{
-//			AlumnoCompuesto compuesto = (AlumnoCompuesto)FabricaDeComparables.crearAleatorio(7);
-//			AlumnoCompuesto compuestoMuyEstudioso = (AlumnoCompuesto)FabricaDeComparables.crearAleatorio(8);
-//			
-//			
-//			//Adaptacion del Alumno Compuesto para funcionar en el sistema MDPI
-//			AlumnoAdapter compuestoAdapter = new AlumnoAdapter(compuesto);
-//			AlumnoAdapter compuestoMuyEstudiosoAdapter = new AlumnoAdapter(compuestoMuyEstudioso);
-//			
-//			PilaProxy pila = new PilaProxy();
-//			Aula aula = new Aula();
-//			pila.setOrdenInicio(new OrdenInicio(aula));
-//			pila.setOrdenLlegaAlumno(new OrdenLlegaAlumno(aula));
-//			pila.setOrdenAulaLlena(new OrdenAulaLlena(aula));
-//			
-//			//Falla. Muestra 2 veces repetidas los resultados del examen del primer elem agregado:
-//			//(No encuentro el problema, todo parece bien estructurado)
-//			pila.agregar(compuestoMuyEstudiosoAdapter);
-//			Thread.Sleep(100);
-//			pila.agregar(compuestoAdapter);
+			AlumnoCompuesto compuesto = (AlumnoCompuesto)FabricaDeComparables.crearAleatorio(7);
+			AlumnoCompuesto compuestoMuyEstudioso = (AlumnoCompuesto)FabricaDeComparables.crearAleatorio(8);
+			
+			
+			//Adaptacion del Alumno Compuesto para funcionar en el sistema MDPI
+			AlumnoAdapter compuestoAdapter = new AlumnoAdapter(compuesto);
+			AlumnoAdapter compuestoMuyEstudiosoAdapter = new AlumnoAdapter(compuestoMuyEstudioso);
+			
+			PilaProxy pila = new PilaProxy();
+			Aula aula = new Aula();
+			pila.setOrdenInicio(new OrdenInicio(aula));
+			pila.setOrdenLlegaAlumno(new OrdenLlegaAlumno(aula));
+			pila.setOrdenAulaLlena(new OrdenAulaLlena(aula));
+			
+			//Falla. Muestra 2 veces repetidas los resultados del examen del primer elem agregado:
+			//(No encuentro el problema, todo parece bien estructurado)
+			pila.agregar(compuestoMuyEstudiosoAdapter);
+			Thread.Sleep(100);
+			pila.agregar(compuestoAdapter);
 
 			//Prueba de juegos de cartas
-			JodeteJuego jodete = new JodeteJuego();
-			jodete.comenzarJuego(new Persona("p1", 1), new Persona("p2", 2), new Persona("p3", 3));
+			Persona p1 = new Persona("p1", 1);
+			Alumno p2 = (Alumno)FabricaDeComparables.crearAleatorio(2);
+			p2.setNombre("P2 Alumno ");
+			JodeteJuego jodete = new JodeteJuego(0);
+			jodete.comenzarJuego(p1, p2);
 			
+			NueveJuego nueve = new NueveJuego(10);
+			nueve.comenzarJuego(p1,p2);
 			
 			Console.ReadKey(true);
 		}

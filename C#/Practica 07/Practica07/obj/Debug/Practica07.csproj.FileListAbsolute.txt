@@ -1,0 +1,6 @@
+C:\Dev\Universidad\C#\Metodologias_de_programacion_Unaj2024_2C\C#\Practica 07\Practica07\bin\Debug\Practica07.exe.config
+C:\Dev\Universidad\C#\Metodologias_de_programacion_Unaj2024_2C\C#\Practica 07\Practica07\bin\Debug\Practica07.exe
+C:\Dev\Universidad\C#\Metodologias_de_programacion_Unaj2024_2C\C#\Practica 07\Practica07\bin\Debug\Practica07.pdb
+C:\Dev\Universidad\C#\Metodologias_de_programacion_Unaj2024_2C\C#\Practica 07\Practica07\obj\Debug\Practica07.csprojResolveAssemblyReference.cache
+C:\Dev\Universidad\C#\Metodologias_de_programacion_Unaj2024_2C\C#\Practica 07\Practica07\obj\Debug\Practica07.exe
+C:\Dev\Universidad\C#\Metodologias_de_programacion_Unaj2024_2C\C#\Practica 07\Practica07\obj\Debug\Practica07.pdb
